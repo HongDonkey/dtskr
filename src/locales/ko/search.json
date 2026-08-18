@@ -1,0 +1,28 @@
+{
+  "search": {
+    "title": "검색할 디지몬을 입력하세요",
+    "placeholder": "디지몬 이름을 검색하세요",
+    "inputLabel": "디지몬 이름 검색",
+    "expand": "펼치기",
+    "collapse": "접기",
+    "empty": "검색 결과가 없습니다."
+  },
+  "status": {
+    "system": "SYSTEM",
+    "database": "API CONNECT",
+    "on": "ON",
+    "off": "OFF"
+  },
+  "stages": {
+    "all": "전체",
+    "baby1": "유년기1",
+    "baby2": "유년기2",
+    "rookie": "성장기",
+    "champion": "성숙기",
+    "ultimate": "완전체",
+    "mega": "궁극체",
+    "megaPlus": "초궁극체",
+    "armor": "아머체",
+    "hybrid": "하이브리드체"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "search": {
+    "title": "Search for a Digimon",
+    "placeholder": "Search by Digimon name",
+    "inputLabel": "Search Digimon by name",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "empty": "No results found."
+  },
+  "status": {
+    "system": "SYSTEM",
+    "database": "API CONNECT",
+    "on": "ON",
+    "off": "OFF"
+  },
+  "stages": {
+    "all": "All",
+    "baby1": "Baby",
+    "baby2": "In-Training",
+    "rookie": "Rookie",
+    "champion": "Champion",
+    "ultimate": "Ultimate",
+    "mega": "Mega",
+    "megaPlus": "Mega+",
+    "armor": "Armor",
+    "hybrid": "Hybrid"
+  }
+}

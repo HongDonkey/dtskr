@@ -1,0 +1,23 @@
+{
+  "evolution": {
+    "titleSuffix": "의 진화 경로",
+    "unknown": "디지몬",
+    "previous": "이전 진화",
+    "next": "다음 진화",
+    "previousRoutes": "이전 진화 가능 경로",
+    "nextRoutes": "다음 진화 가능 경로",
+    "current": "현재 선택",
+    "noneSelected": "선택된 디지몬 없음",
+    "detailLabel": "{{name}} 상세정보 보기",
+    "directionLabel": "진화 방향",
+    "loading": "진화 경로를 불러오는 중입니다.",
+    "error": "진화 경로를 불러오지 못했습니다.",
+    "emptyPrevious": "등록된 이전 진화 경로가 없습니다.",
+    "emptyNext": "등록된 다음 진화 경로가 없습니다.",
+    "toggleLabel": "{{name}} 하위 진화 경로 {{action}}",
+    "condition": "진화 조건",
+    "noCondition": "등록된 조건 정보가 없습니다.",
+    "expand": "펼치기",
+    "collapse": "접기"
+  }
+}

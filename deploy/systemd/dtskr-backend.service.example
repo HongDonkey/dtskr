@@ -1,0 +1,25 @@
+[Unit]
+Description=DTSKR Spring Boot backend
+After=network-online.target mysql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=dtskr
+Group=dtskr
+WorkingDirectory=/opt/dtskr/backend
+EnvironmentFile=/etc/dtskr/dtskr.env
+ExecStart=/usr/bin/java -XX:MaxRAMPercentage=75 -jar /opt/dtskr/backend/dtskrB.jar
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+SuccessExitStatus=143
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/dtskr/uploads/requests
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,23 @@
+{
+  "evolution": {
+    "titleSuffix": "'s Evolution Route",
+    "unknown": "Digimon",
+    "previous": "Previous Evolution",
+    "next": "Next Evolution",
+    "previousRoutes": "Previous Evolution Routes",
+    "nextRoutes": "Next Evolution Routes",
+    "current": "Current Selection",
+    "noneSelected": "No Digimon Selected",
+    "detailLabel": "View details for {{name}}",
+    "directionLabel": "Evolution direction",
+    "loading": "Loading evolution routes...",
+    "error": "Failed to load evolution routes.",
+    "emptyPrevious": "No previous evolution routes are registered.",
+    "emptyNext": "No next evolution routes are registered.",
+    "toggleLabel": "{{action}} evolutions below {{name}}",
+    "condition": "Evolution Requirements",
+    "noCondition": "No requirements are registered.",
+    "expand": "Expand",
+    "collapse": "Collapse"
+  }
+}
