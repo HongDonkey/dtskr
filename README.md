@@ -8,11 +8,8 @@
 - `evolution_kr`은 방향이 있는 진화 관계를 저장한다.
   - 다음 진화: `from_digimon_id`로 조회한다.
   - 이전 진화/퇴화: `to_digimon_id`로 조회한다.
-- 다국어(i18n)는 현재 구현하지 않는다.
-- 추후 사용자 언어 설정에 따라 언어 접미사가 붙은 테이블을 선택하는 방식으로 확장한다.
-  - 한국어: `_kr`
-  - 영어: `_en`
-  - 일본어: `_jp`
+- 다국어(i18n)중 일본어는 현재 구현하지 않는다.
+
 - `digimon_translation_kr`은 추후 다국어 데이터 확장 시 재검토한다. 언어별 테이블 방식을 채택하면 테이블 안의 번역 전용 데이터가 중복될 수 있다.
 
 ## 성격 분류 체계
@@ -42,13 +39,5 @@
   4. 영문 이름과 도감 URL 식별자가 다른 경우를 고려해 철자 및 대체 표기를 재확인한다. 예: `Pabumon`의 도감 식별자는 `bubbmon`이다.
 - 위 절차를 마친 뒤에도 확인할 수 없는 공식 정보만 `NULL` 또는 보류로 남긴다.
 
-## Flyway SQL 주의사항
-
-Flyway SQL 파일에는 Markdown 기호를 포함하지 않는다. 아래처럼 작성한다.
-
-```sql
-created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-```
 
 `*CURRENT_TIMESTAMP*`처럼 별표가 들어가면 SQL 문법 오류가 발생한다.
