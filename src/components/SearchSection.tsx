@@ -42,9 +42,8 @@ export function SearchSection({
   const normalizedQuery = query.trim()
   const selectedFilter = stageFilters.find((item) => item.key === stageKey)!
   const stageName = useCallback(
-    (filter: (typeof stageFilters)[number]) =>
-      i18n.language.startsWith('en') ? t(`stages.${filter.key}`) : filter.source,
-    [i18n.language, t]
+    (filter: (typeof stageFilters)[number]) => t(`stages.${filter.key}`),
+    [t]
   )
 
   const { data: countsByStage = {} } = useQuery({
@@ -144,7 +143,7 @@ export function SearchSection({
       </Box>
       <Grid container size={12} className="filters" spacing={1}>
         {stageFilters.map((item) => {
-          const countKey = i18n.language.startsWith('en') ? t(`stages.${item.key}`) : item.source
+          const countKey = t(`stages.${item.key}`)
           const count = normalizedQuery ? searchCounts.get(item.key) : countsByStage[countKey]
           return (
             <Grid key={item.key} size="auto">

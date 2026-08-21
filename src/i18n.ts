@@ -17,10 +17,11 @@ const resources = {
 } as const
 
 const savedLanguage = window.localStorage.getItem('language')
+const initialLanguage = savedLanguage === 'EN' ? 'en' : savedLanguage === 'JP' ? 'jp' : 'ko'
 
 void i18n.use(initReactI18next).init({
   resources,
-  lng: savedLanguage === 'EN' ? 'en' : 'ko',
+  lng: initialLanguage,
   fallbackLng: 'ko',
   ns: ['main', 'search', 'evolution'],
   defaultNS: 'main',

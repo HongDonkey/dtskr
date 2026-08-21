@@ -9,6 +9,7 @@ import { EvolutionRouteSection } from '../components/EvolutionRouteSection'
 import { SearchSection } from '../components/SearchSection'
 import type { DigimonSummary } from '../types/digimon'
 import type { AppOutletContext } from '../types/layout'
+import { catalogAllLabel } from '../utils/language'
 
 export function HomePage() {
   const { t, i18n } = useTranslation('main')
@@ -50,7 +51,7 @@ export function HomePage() {
     <EvolutionRouteSection digimon={selected} />
 
     <Grid container component="section" className="stats" id="guide" sx={{ alignItems: 'center' }}>
-      <Grid size={{ xs: 4, md: 3 }}><Typography component="span">DATA</Typography><Typography component="b">{counts[i18n.language.startsWith('en') ? 'All' : '전체'] ?? '-'}</Typography><Typography component="small">{t('stats.registered')}</Typography></Grid>
+      <Grid size={{ xs: 4, md: 3 }}><Typography component="span">DATA</Typography><Typography component="b">{counts[catalogAllLabel(i18n.language)] ?? '-'}</Typography><Typography component="small">{t('stats.registered')}</Typography></Grid>
       <Grid size={{ xs: 4, md: 3 }}><Typography component="span">ROUTE</Typography><Typography component="b">{evolutionCountQuery.data ?? '-'}</Typography><Typography component="small">{t('stats.routes')}</Typography></Grid>
       <Grid size={{ xs: 4, md: 3 }}><Typography component="span">LANG</Typography><Typography component="b">{language}</Typography><Typography component="small">{t('stats.interface')}</Typography></Grid>
     </Grid>

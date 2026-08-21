@@ -1,1 +1,28 @@
-{}
+{
+  "search": {
+    "title": "検索するデジモンを入力してください",
+    "placeholder": "デジモン名で検索",
+    "inputLabel": "デジモン名検索",
+    "expand": "展開",
+    "collapse": "折りたたむ",
+    "empty": "検索結果がありません。"
+  },
+  "status": {
+    "system": "SYSTEM",
+    "database": "API CONNECT",
+    "on": "ON",
+    "off": "OFF"
+  },
+  "stages": {
+    "all": "すべて",
+    "baby1": "幼年期Ⅰ",
+    "baby2": "幼年期Ⅱ",
+    "rookie": "成長期",
+    "champion": "成熟期",
+    "ultimate": "完全体",
+    "mega": "究極体",
+    "megaPlus": "超究極体",
+    "armor": "アーマー体",
+    "hybrid": "ハイブリッド体"
+  }
+}

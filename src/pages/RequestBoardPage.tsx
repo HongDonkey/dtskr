@@ -44,7 +44,7 @@ export function RequestBoardPage() {
     try {
       const result = await createRequestPost({
         category, title, content, requesterName, requesterPassword,
-        languageCode: i18n.language.startsWith('en') ? 'en' : 'ko',
+        languageCode: i18n.language.startsWith('en') ? 'en' : i18n.language.startsWith('jp') ? 'jp' : 'ko',
         relatedDigimonId: relatedDigimon?.id,
         images,
       })

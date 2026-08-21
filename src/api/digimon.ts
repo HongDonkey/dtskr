@@ -9,7 +9,7 @@ export type SystemHealth = {
 
 const catalogRequest = (options: Parameters<typeof fetch>[1] = {}) => ({
   ...options,
-  headers: { ...options.headers, 'Accept-Language': i18n.language.startsWith('en') ? 'en' : 'ko' },
+  headers: { ...options.headers, 'Accept-Language': i18n.language.startsWith('en') ? 'en' : i18n.language.startsWith('jp') ? 'jp' : 'ko' },
 })
 
 async function getDigimons(endpoint: string): Promise<DigimonSummary[]> {

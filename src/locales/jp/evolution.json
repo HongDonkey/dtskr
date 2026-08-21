@@ -1,1 +1,23 @@
-{}
+{
+  "evolution": {
+    "titleSuffix": "の進化ルート",
+    "unknown": "デジモン",
+    "previous": "進化前",
+    "next": "進化後",
+    "previousRoutes": "進化前のルート",
+    "nextRoutes": "進化後のルート",
+    "current": "選択中",
+    "noneSelected": "デジモンが選択されていません",
+    "detailLabel": "{{name}}の詳細を見る",
+    "directionLabel": "進化方向",
+    "loading": "進化ルートを読み込んでいます。",
+    "error": "進化ルートを読み込めませんでした。",
+    "emptyPrevious": "登録された進化前ルートがありません。",
+    "emptyNext": "登録された進化後ルートがありません。",
+    "toggleLabel": "{{name}}の下位進化ルートを{{action}}",
+    "condition": "進化条件",
+    "noCondition": "登録された条件情報がありません。",
+    "expand": "展開",
+    "collapse": "折りたたむ"
+  }
+}
