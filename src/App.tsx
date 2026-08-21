@@ -4,6 +4,7 @@ import { Link as RouterLink, Outlet, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './App.css'
 import type { AppOutletContext, Language } from './types/layout'
+import { languageToLocale, localeToLanguage } from './utils/language'
 
 const referenceUrlByLanguage: Record<Language, string> = {
   KR: 'https://digimon.net/reference_ko/',
@@ -16,16 +17,12 @@ function App() {
   const location = useLocation()
   const isHome = location.pathname === '/'
   const isRequestBoard = location.pathname === '/requests'
-  const [language, setLanguage] = useState<Language>(i18n.language.startsWith('en') ? 'EN' : 'KR')
+  const [language, setLanguage] = useState<Language>(() => localeToLanguage(i18n.language))
 
   const selectLanguage = (next: Language) => {
-    if (next === 'JP') {
-      window.alert(t('common.preparing', { lng: 'jp' }))
-      return
-    }
     setLanguage(next)
     window.localStorage.setItem('language', next)
-    void i18n.changeLanguage(next === 'EN' ? 'en' : 'ko')
+    void i18n.changeLanguage(languageToLocale[next])
   }
 
   const scrollTo = (id: 'planner' | 'dex') => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
