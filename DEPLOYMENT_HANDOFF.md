@@ -27,6 +27,11 @@ Spring Boot:
 - -Xms128m
 - -Xmx384m
 
+Restart helper:
+- Backend repository: `bash scripts/restart-backend.sh`
+- It restarts `dtskr.service`, waits for `/api/health`, verifies both API and DB are `UP`, and prints recent journal logs on failure.
+- Overrides: `DTSKR_SERVICE_NAME`, `DTSKR_HEALTH_URL`, `DTSKR_HEALTH_MAX_ATTEMPTS`, `DTSKR_HEALTH_RETRY_SECONDS`.
+
 Environment:
 - /etc/dtskr/dtskr.env
 - credentials are NOT stored in Git
@@ -49,6 +54,12 @@ npm run build
 
 Deployment:
 /var/www/digivolutionlab
+
+Deploy helper:
+- Frontend repository: `bash deploy/deploy-frontend.sh`
+- It runs `npm ci`, lint, production build, synchronizes `dist/` to `/var/www/digivolutionlab`, and checks the public URL.
+- Nginx restart is unnecessary for static-file changes.
+- Overrides: `DTSKR_FRONTEND_DEPLOY_DIR`, `DTSKR_FRONTEND_URL`.
 
 API:
 relative /api/* paths
