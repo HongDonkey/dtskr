@@ -441,7 +441,7 @@ nav .active {
   text-shadow: none;
 }
 .attribute-filter-group {
-  width: min(240px, 100%);
+  width: min(170px, 100%);
   margin: 0;
 }
 .attribute-filter-title {
@@ -453,8 +453,8 @@ nav .active {
   letter-spacing: 0.08em;
 }
 .attribute-select.MuiInputBase-root {
-  width: min(240px, 100%);
-  height: 38px;
+  width: 100%;
+  height: 36px;
   border: 1px solid rgba(130, 208, 255, 0.24);
   border-radius: 2px;
   background: #0b2449;
@@ -478,7 +478,10 @@ nav .active {
   color: #d5e7f7;
 }
 .attribute-select-menu .MuiMenuItem-root {
+  min-height: 32px;
+  padding: 6px 12px;
   font-size: 12px;
+  line-height: 20px;
 }
 .attribute-select-menu .MuiMenuItem-root:hover,
 .attribute-select-menu .MuiMenuItem-root.Mui-selected {
