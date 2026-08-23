@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Box, Button, IconButton, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
-import { useNavigate } from 'react-router-dom'
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { getEvolutionRoutes } from '../api/digimon'
 import type { DigimonSummary } from '../types/digimon'
@@ -12,6 +12,7 @@ import type {
   EvolutionTreeNode,
   EvolutionTreeNodeViewProps,
 } from '../types/evolution'
+import { languageToSearchLocale, localeToLanguage } from '../utils/language'
 
 function toTreeNode(node: EvolutionRouteNode, path = String(node.id)): EvolutionTreeNode {
   return {
@@ -91,8 +92,9 @@ export function EvolutionRouteSection({ digimon }: { digimon: DigimonSummary | n
         <Box className="tree-workspace">
           <Box className="tree-primary">
             <Button
+              component={RouterLink}
+              to={current ? `/digimons/${current.id}?lang=${languageToSearchLocale[localeToLanguage(i18n.language)]}` : '#'}
               className="tree-focus"
-              onClick={() => current && navigate(`/digimons/${current.id}`)}
               disabled={!current}
               aria-label={
                 current
@@ -160,7 +162,7 @@ function EvolutionTreeNodeView({
   onToggle,
   onSelect,
 }: EvolutionTreeNodeViewProps) {
-  const { t } = useTranslation('evolution')
+  const { t, i18n } = useTranslation('evolution')
   const hasChildren = Boolean(node.children?.length)
   const expanded = expandedNodeIds.has(node.id)
   return (
@@ -181,8 +183,13 @@ function EvolutionTreeNodeView({
           <Box className="tree-route-toggle-placeholder" />
         )}
         <Button
+          component={RouterLink}
+          to={`/digimons/${node.digimonId}?lang=${languageToSearchLocale[localeToLanguage(i18n.language)]}`}
           className={`tree-node-card ${selectedNodeId === node.id ? 'selected' : ''}`}
-          onClick={() => onSelect(node)}
+          onClick={(event) => {
+            event.preventDefault()
+            onSelect(node)
+          }}
         >
           <Box className={`tree-node-icon ${node.tone}`}>
             {node.pixelImageUrl ? (

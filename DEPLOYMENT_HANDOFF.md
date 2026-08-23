@@ -66,6 +66,12 @@ Frontend:
 API proxy:
 127.0.0.1:8080
 
+SEO endpoints:
+- `/sitemap.xml` -> `http://127.0.0.1:8080/sitemap.xml`
+- `/robots.txt` is included in the frontend build; it points to the root sitemap.
+- Set `SITE_BASE_URL=https://digivolutionlab.com` in `/etc/dtskr/dtskr.env`.
+- Keep the exact-match `/sitemap.xml` proxy above the SPA `try_files` location.
+
 Domain:
 digivolutionlab.com
 www.digivolutionlab.com

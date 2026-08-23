@@ -163,6 +163,15 @@
     "message2": "進化ルート",
     "message3": "を完成させよう。"
   },
+  "seo": {
+    "homeTitle": "デジモンストーリー タイムストレンジャー進化ツリー | DIGIVOLUTION",
+    "homeDescription": "デジモンストーリー タイムストレンジャーの進化ルート、進化前・進化後のデジモン、進化条件を確認できます。",
+    "detailTitle": "{{name}}の進化ルートと条件 | DIGIVOLUTION",
+    "detailLoadingTitle": "デジモン詳細 | DIGIVOLUTION",
+    "detailDescription": "{{name}}（{{stage}}・{{type}}）の進化ルートと進化条件：{{condition}}",
+    "privateTitle": "DIGIVOLUTION",
+    "privateDescription": "DIGIVOLUTIONのサービスページです。"
+  },
   "common": {
     "preparing": "サービス準備中です。"
   }

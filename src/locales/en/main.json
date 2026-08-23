@@ -163,6 +163,15 @@
     "message2": "Evolution Route",
     "message3": "."
   },
+  "seo": {
+    "homeTitle": "Digimon Time Stranger Evolution Tree | DIGIVOLUTION",
+    "homeDescription": "Explore Digimon Time Stranger evolution routes, previous and next evolutions, and every evolution requirement.",
+    "detailTitle": "{{name}} Evolution Route and Requirements | DIGIVOLUTION",
+    "detailLoadingTitle": "Digimon Details | DIGIVOLUTION",
+    "detailDescription": "Evolution route and requirements for {{name}} ({{stage}}, {{type}}): {{condition}}",
+    "privateTitle": "DIGIVOLUTION",
+    "privateDescription": "A DIGIVOLUTION service page."
+  },
   "common": {
     "preparing": "This service is coming soon."
   }

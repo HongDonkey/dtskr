@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Box, Button, InputBase, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { useTranslation } from 'react-i18next'
+import { Link as RouterLink } from 'react-router-dom'
 import {
   getAllDigimons,
   getDigimonCounts,
@@ -11,6 +12,7 @@ import {
   searchDigimonsByName,
 } from '../api/digimon'
 import type { DigimonSummary } from '../types/digimon'
+import { languageToSearchLocale, localeToLanguage } from '../utils/language'
 
 const stageFilters = [
   { key: 'all', source: '전체', code: null },
@@ -191,8 +193,13 @@ export function SearchSection({
           {results.map((item) => (
             <Grid key={item.id} size={{ xs: 12, sm: 6, md: 4 }}>
               <Button
+                component={RouterLink}
+                to={`/digimons/${item.id}?lang=${languageToSearchLocale[localeToLanguage(i18n.language)]}`}
                 className={`digimon-card ${selectedDigimon?.id === item.id ? 'selected' : ''}`}
-                onClick={() => onSelect(item)}
+                onClick={(event) => {
+                  event.preventDefault()
+                  onSelect(item)
+                }}
               >
                 <Box component="i" className="digimon-card-arrow">
                   →
