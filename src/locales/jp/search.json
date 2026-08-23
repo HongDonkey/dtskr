@@ -13,6 +13,10 @@
     "on": "ON",
     "off": "OFF"
   },
+  "attributes": {
+    "label": "属性フィルター",
+    "all": "すべての属性"
+  },
   "stages": {
     "all": "すべて",
     "baby1": "幼年期Ⅰ",

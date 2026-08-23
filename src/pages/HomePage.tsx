@@ -12,11 +12,21 @@ import type { DigimonSummary } from '../types/digimon'
 import type { AppOutletContext } from '../types/layout'
 import { catalogAllLabel } from '../utils/language'
 
+const selectedDigimonKey = 'digivolution:selected-digimon'
+
+const readSelectedDigimon = (): DigimonSummary | null => {
+  try {
+    return JSON.parse(sessionStorage.getItem(selectedDigimonKey) ?? 'null') as DigimonSummary | null
+  } catch {
+    return null
+  }
+}
+
 export function HomePage() {
   const { t, i18n } = useTranslation('main')
   const { language } = useOutletContext<AppOutletContext>()
   const navigate = useNavigate()
-  const [selected, setSelected] = useState<DigimonSummary | null>(null)
+  const [selected, setSelected] = useState<DigimonSummary | null>(readSelectedDigimon)
   const adminClickCount = useRef(0)
   const adminClickTimer = useRef<number | null>(null)
   const [countsQuery, evolutionCountQuery] = useQueries({ queries: [
@@ -27,6 +37,7 @@ export function HomePage() {
 
   const selectDigimon = (digimon: DigimonSummary) => {
     setSelected(digimon)
+    sessionStorage.setItem(selectedDigimonKey, JSON.stringify(digimon))
     window.requestAnimationFrame(() => document.getElementById('dex')?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
   }
 
