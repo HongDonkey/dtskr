@@ -63,6 +63,8 @@
     }
   },
   "admin": {
+    "todayStatistics": "Today's visit statistics",
+    "todayVisitors": "Visitors today",
     "hiddenAccess": "Hidden administrator access",
     "title": "Administrator Authentication",
     "description": "Enter the administrator password to view registered requests.",
@@ -97,6 +99,7 @@
     "respondedBy": "{{administrator}} · {{date}}"
   },
   "privacy": {
+    "visitorStatistics": "For daily unique visitor statistics, the IP address is converted into a date-specific identifier hash. The original IP is not stored in visit statistics, and the hash is automatically deleted after two days.",
     "footerLink": "Privacy Policy",
     "back": "Go back",
     "title": "Privacy Policy",

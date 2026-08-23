@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AppBar, Box, Button, Link, Stack, Toolbar, Typography } from '@mui/material'
 import { Link as RouterLink, Outlet, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './App.css'
 import type { AppOutletContext, Language } from './types/layout'
 import { languageToLocale, localeToLanguage } from './utils/language'
+import { recordVisit } from './api/visitor'
 
 const referenceUrlByLanguage: Record<Language, string> = {
   KR: 'https://digimon.net/reference_ko/',
@@ -18,6 +19,15 @@ function App() {
   const isHome = location.pathname === '/'
   const isRequestBoard = location.pathname === '/requests'
   const [language, setLanguage] = useState<Language>(() => localeToLanguage(i18n.language))
+
+  useEffect(() => {
+    if (location.pathname.startsWith('/admin')) return
+    const visitKey = `visit-recorded:${new Intl.DateTimeFormat('en-CA').format(new Date())}`
+    if (window.sessionStorage.getItem(visitKey)) return
+    void recordVisit()
+      .then(() => window.sessionStorage.setItem(visitKey, 'true'))
+      .catch(() => undefined)
+  }, [location.pathname])
 
   const selectLanguage = (next: Language) => {
     setLanguage(next)

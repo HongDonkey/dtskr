@@ -2155,6 +2155,53 @@ footer a {
   align-items: center;
 }
 
+.admin-statistics {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 24px;
+  padding: 18px 20px;
+  border: 1px solid #287bab;
+  border-left: 3px solid #c3f550;
+  background: rgba(13, 54, 96, 0.72);
+}
+
+.admin-statistics > div {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+
+.admin-statistics span {
+  color: #82d0ff;
+  font-weight: 700;
+}
+
+.admin-statistics strong {
+  color: #c3f550;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.admin-statistics small {
+  color: #8299b3;
+}
+
+@media (max-width: 600px) {
+  .admin-statistics {
+    align-items: center;
+    padding: 14px;
+  }
+
+  .admin-statistics > div {
+    gap: 12px;
+  }
+
+  .admin-statistics strong {
+    font-size: 26px;
+  }
+}
 .admin-request-table-head {
   min-height: 48px;
   color: #83dfff;

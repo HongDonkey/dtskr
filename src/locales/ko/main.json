@@ -63,6 +63,8 @@
     }
   },
   "admin": {
+    "todayStatistics": "오늘 방문 통계",
+    "todayVisitors": "오늘 방문자",
     "hiddenAccess": "숨겨진 관리자 인증 진입점",
     "title": "관리자 인증",
     "description": "등록된 요청을 확인하려면 관리자 비밀번호를 입력하세요.",
@@ -97,6 +99,7 @@
     "respondedBy": "{{administrator}} · {{date}}"
   },
   "privacy": {
+    "visitorStatistics": "오늘의 고유 방문자 집계를 위해 IP 주소를 날짜별 식별 해시로 변환하며, 원본 IP는 방문 통계에 저장하지 않습니다. 식별 해시는 2일 후 자동 삭제됩니다.",
     "footerLink": "개인정보 처리방침",
     "back": "이전 화면",
     "title": "개인정보 처리방침",

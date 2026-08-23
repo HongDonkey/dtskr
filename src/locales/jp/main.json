@@ -63,6 +63,8 @@
     }
   },
   "admin": {
+    "todayStatistics": "本日の訪問統計",
+    "todayVisitors": "本日の訪問者数",
     "hiddenAccess": "管理者認証画面を開く",
     "title": "管理者認証",
     "description": "登録されたリクエストを確認するには管理者情報を入力してください。",
@@ -97,6 +99,7 @@
     "respondedBy": "{{administrator}} · {{date}}"
   },
   "privacy": {
+    "visitorStatistics": "本日のユニーク訪問者数を集計するため、IPアドレスを日付ごとの識別ハッシュに変換します。訪問統計には元のIPアドレスを保存せず、識別ハッシュは2日後に自動削除されます。",
     "footerLink": "プライバシーポリシー",
     "back": "前の画面",
     "title": "プライバシーポリシー",

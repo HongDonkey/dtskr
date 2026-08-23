@@ -64,6 +64,17 @@ export type AdminAttachmentSummary = {
   fileSize: number
 }
 
+export type TodayStatistics = {
+  date: string
+  uniqueVisitors: number
+}
+
+export async function getTodayStatistics(): Promise<TodayStatistics> {
+  const response = await fetch('/api/admin/statistics/today', { credentials: 'include', cache: 'no-store' })
+  if (!response.ok) throw new Error('Failed to load today statistics.')
+  return (await response.json()) as TodayStatistics
+}
+
 export async function getAdminRequests(): Promise<AdminRequestSummary[]> {
   const response = await fetch('/api/admin/requests', { credentials: 'include', cache: 'no-store' })
   if (!response.ok) throw new Error('Failed to load requests.')

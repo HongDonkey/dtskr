@@ -2,7 +2,7 @@ import { Box, Button, CircularProgress, Typography } from '@mui/material'
 import { type FormEvent, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { changeAdminPassword, getAdminAuthStatus, getAdminRequests, logoutAdmin, updateAdminRequestResponse, updateAdminRequestStatus, type AdminRequestSummary, type RequestStatus } from '../api/admin'
+import { changeAdminPassword, getAdminAuthStatus, getAdminRequests, getTodayStatistics, logoutAdmin, updateAdminRequestResponse, updateAdminRequestStatus, type AdminRequestSummary, type RequestStatus, type TodayStatistics } from '../api/admin'
 import { AdminRequestTable } from '../components/requestBoard/AdminRequestTable'
 
 export function AdminRequestBoardPage() {
@@ -18,6 +18,7 @@ export function AdminRequestBoardPage() {
   const [statusMessage, setStatusMessage] = useState('')
   const [updatingRequestId, setUpdatingRequestId] = useState<number | null>(null)
   const [responseDrafts, setResponseDrafts] = useState<Record<number, string>>({})
+  const [todayStatistics, setTodayStatistics] = useState<TodayStatistics | null>(null)
 
   useEffect(() => {
     void getAdminAuthStatus()
@@ -28,8 +29,9 @@ export function AdminRequestBoardPage() {
           setPasswordChangeRequired(Boolean(result.passwordChangeRequired))
           setShowPasswordForm(Boolean(result.passwordChangeRequired))
           if (result.passwordChangeRequired) return
-          return getAdminRequests().then((loaded) => {
+          return Promise.all([getAdminRequests(), getTodayStatistics()]).then(([loaded, statistics]) => {
             setRequests(loaded)
+            setTodayStatistics(statistics)
             setResponseDrafts(Object.fromEntries(loaded.map((request) => [request.id, request.adminResponse ?? ''])))
           })
         }
@@ -105,6 +107,7 @@ export function AdminRequestBoardPage() {
               <Button className="request-write-toggle" onClick={() => void logoutAdmin().finally(() => navigate('/admin/login', { replace: true }))}>{t('admin.logout')}</Button>
             </Box>
           </Box>
+          {!passwordChangeRequired && todayStatistics && <Box className="admin-statistics" aria-label={t('admin.todayStatistics')}><Box><Typography component="span">{t('admin.todayVisitors')}</Typography><Typography component="strong">{todayStatistics.uniqueVisitors.toLocaleString()}</Typography></Box><Typography component="small">{todayStatistics.date}</Typography></Box>}
           {passwordChangeRequired && <Typography className="request-form-message error" role="alert">{t('admin.passwordChangeRequired')}</Typography>}
           {showPasswordForm && <Box component="form" className="admin-password-form" onSubmit={submitPassword}><label className="request-native-field"><span>{t('admin.currentPassword')}</span><input type="password" value={currentPassword} onChange={(event) => setCurrentPassword(event.target.value)} required /></label><label className="request-native-field"><span>{t('admin.newPassword')}</span><input type="password" value={newPassword} onChange={(event) => setNewPassword(event.target.value)} minLength={8} maxLength={72} required /></label><Button type="submit">{t('admin.savePassword')}</Button></Box>}
           {passwordMessage && <Typography className="request-form-message">{passwordMessage}</Typography>}
