@@ -65,6 +65,7 @@
   "admin": {
     "todayStatistics": "本日の訪問統計",
     "todayVisitors": "本日の訪問者数",
+    "totalVisitors": "累計訪問者数",
     "hiddenAccess": "管理者認証画面を開く",
     "title": "管理者認証",
     "description": "登録されたリクエストを確認するには管理者情報を入力してください。",

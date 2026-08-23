@@ -2156,9 +2156,9 @@ footer a {
 }
 
 .admin-statistics {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  align-items: center;
   gap: 24px;
   margin: 0 0 24px;
   padding: 18px 20px;
@@ -2167,10 +2167,15 @@ footer a {
   background: rgba(13, 54, 96, 0.72);
 }
 
-.admin-statistics > div {
+.admin-statistic-item {
   display: flex;
   align-items: baseline;
   gap: 18px;
+}
+
+.admin-statistic-item + .admin-statistic-item {
+  padding-left: 24px;
+  border-left: 1px solid rgba(63, 221, 255, 0.25);
 }
 
 .admin-statistics span {
@@ -2190,16 +2195,28 @@ footer a {
 
 @media (max-width: 600px) {
   .admin-statistics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
+    gap: 14px 10px;
     padding: 14px;
   }
 
-  .admin-statistics > div {
-    gap: 12px;
+  .admin-statistic-item {
+    display: grid;
+    gap: 6px;
+  }
+
+  .admin-statistic-item + .admin-statistic-item {
+    padding-left: 12px;
   }
 
   .admin-statistics strong {
     font-size: 26px;
+  }
+
+  .admin-statistics small {
+    grid-column: 1 / -1;
+    text-align: right;
   }
 }
 .admin-request-table-head {
@@ -3098,5 +3115,72 @@ footer a {
 
   .tree-workspace .tree-node-card.MuiButton-root {
     padding: 10px 9px;
+  }
+}
+
+@media (max-width: 760px) {
+  .admin-request-table-head {
+    display: none;
+  }
+
+  .request-board-table {
+    border: 0;
+  }
+
+  .admin-request-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    margin-bottom: 14px;
+    border: 1px solid rgba(55, 181, 235, 0.5);
+    border-left: 3px solid #c3f550;
+  }
+
+  .admin-request-row > * {
+    min-width: 0;
+    padding: 11px 12px;
+  }
+
+  .admin-request-row > [role='cell']::before {
+    display: block;
+    margin-bottom: 6px;
+    color: #61ddff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    content: attr(data-label);
+  }
+
+  .admin-request-copy {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(55, 181, 235, 0.28);
+    border-bottom: 1px solid rgba(55, 181, 235, 0.28);
+  }
+
+  .admin-request-copy > p {
+    font-size: 14px;
+  }
+
+  .admin-request-attachments {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-attachment img {
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+  }
+
+  .admin-status-select {
+    min-width: 0;
+  }
+
+  .admin-response-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-response-actions .MuiButton-root {
+    align-self: flex-end;
   }
 }

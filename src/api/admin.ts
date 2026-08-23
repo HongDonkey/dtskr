@@ -67,6 +67,7 @@ export type AdminAttachmentSummary = {
 export type TodayStatistics = {
   date: string
   uniqueVisitors: number
+  totalVisitors: number
 }
 
 export async function getTodayStatistics(): Promise<TodayStatistics> {
