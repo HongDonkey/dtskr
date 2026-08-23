@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Box, Button, Link, Typography } from '@mui/material'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { getDigimonDetail } from '../api/digimon'
 import '../App.css'
+import { PageMetadata } from '../components/PageMetadata'
+import { localeToLanguage } from '../utils/language'
 
 export function DigimonDetailPage() {
   const { t, i18n } = useTranslation('main')
@@ -15,8 +17,31 @@ export function DigimonDetailPage() {
   const evolutionConditions = data
     ? (data.evolutionCondition ?? '').split(',').map((condition) => condition.trim()).filter(Boolean)
     : []
+  const language = localeToLanguage(i18n.language)
+  const pageTitle = data ? t('seo.detailTitle', { name: data.name }) : t('seo.detailLoadingTitle')
+  const pageDescription = data
+    ? t('seo.detailDescription', {
+        name: data.name,
+        stage: data.stage,
+        type: data.digimonType,
+        condition: data.evolutionCondition || t('detail.noCondition'),
+      })
+    : t('seo.homeDescription')
+  const structuredData = useMemo(() => data ? {
+    '@context': 'https://schema.org',
+    '@type': 'Thing',
+    name: data.name,
+    description: pageDescription,
+    image: data.imageUrl || data.pixelImageUrl || undefined,
+    url: window.location.href,
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: t('detail.stage'), value: data.stage },
+      { '@type': 'PropertyValue', name: t('detail.attribute'), value: data.attribute },
+      { '@type': 'PropertyValue', name: t('detail.type'), value: data.digimonType },
+    ],
+  } : null, [data, pageDescription, t])
 
-  return <Box component="main" className="detail-page"><Box className="detail-grid" /><Box className="detail-shell">
+  return <Box component="main" className="detail-page"><PageMetadata language={language} title={pageTitle} description={pageDescription} imageUrl={data?.imageUrl ?? data?.pixelImageUrl} noIndex={isError || (!data && !isLoading)} structuredData={structuredData} /><Box className="detail-grid" /><Box className="detail-shell">
     <Button className="detail-back" onClick={() => navigate(-1)}><Box component="span" aria-hidden="true">←</Box> {t('detail.back')}</Button>
     {isLoading && <Typography className="detail-message">{t('detail.loading')}</Typography>}
     {(isError || (!data && !isLoading)) && <Typography className="detail-message">{t('detail.error')}</Typography>}

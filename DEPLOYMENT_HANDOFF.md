@@ -66,6 +66,12 @@ Frontend:
 API proxy:
 127.0.0.1:8080
 
+SEO endpoints:
+- `/sitemap.xml` -> `http://127.0.0.1:8080/sitemap.xml`
+- `/robots.txt` is included in the frontend build; it points to the root sitemap.
+- Set `SITE_BASE_URL=https://digivolutionlab.com` in `/etc/dtskr/dtskr.env`.
+- Keep the exact-match `/sitemap.xml` proxy above the SPA `try_files` location.
+
 Domain:
 digivolutionlab.com
 www.digivolutionlab.com
@@ -75,8 +81,17 @@ Let's Encrypt / Certbot
 auto-renew tested successfully
 
 ## TODO
-1. 일본어 구현
-2. 모바일 최적화
-3. 개발자도구 단축키/우클릭 방지
-4. 운영 보안 최종 점검
-5. 관리자 bootstrap secret 제거
+
+- Set a long random `VISITOR_HASH_SECRET` in the backend production environment before deploying V21.
+- Verify that `/api/admin/statistics/today` shows the daily unique visitor count after deployment.
+1. 모바일 최적화
+2. 개발자도구 단축키/우클릭 방지
+
+## Completed
+- 일본어 구현 및 운영 배포
+- 운영 보안 최종 점검
+- 관리자 bootstrap secret 제거
+
+## Operator preference
+- 운영환경 터미널에서 파일을 편집하는 절차는 항상 `vim` 기준으로 안내한다.
+- `nano`, `sudoedit` 등 다른 편집기 명령은 사용자가 별도로 요청하지 않는 한 안내하지 않는다.

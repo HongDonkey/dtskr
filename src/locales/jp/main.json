@@ -63,7 +63,9 @@
     }
   },
   "admin": {
-    "hiddenAccess": "管理者認証画面を開く",
+    "todayStatistics": "本日の訪問統計",
+    "todayVisitors": "本日の訪問者数",
+    "totalVisitors": "累計訪問者数",
     "title": "管理者認証",
     "description": "登録されたリクエストを確認するには管理者情報を入力してください。",
     "loginId": "管理者ID",
@@ -97,6 +99,7 @@
     "respondedBy": "{{administrator}} · {{date}}"
   },
   "privacy": {
+    "visitorStatistics": "本日のユニーク訪問者数を集計するため、IPアドレスを日付ごとの識別ハッシュに変換します。訪問統計には元のIPアドレスを保存せず、識別ハッシュは2日後に自動削除されます。",
     "footerLink": "プライバシーポリシー",
     "back": "前の画面",
     "title": "プライバシーポリシー",
@@ -159,6 +162,15 @@
     "message1": "自分だけの",
     "message2": "進化ルート",
     "message3": "を完成させよう。"
+  },
+  "seo": {
+    "homeTitle": "デジモンストーリー タイムストレンジャー進化ツリー | DIGIVOLUTION",
+    "homeDescription": "デジモンストーリー タイムストレンジャーの進化ルート、進化前・進化後のデジモン、進化条件を確認できます。",
+    "detailTitle": "{{name}}の進化ルートと条件 | DIGIVOLUTION",
+    "detailLoadingTitle": "デジモン詳細 | DIGIVOLUTION",
+    "detailDescription": "{{name}}（{{stage}}・{{type}}）の進化ルートと進化条件：{{condition}}",
+    "privateTitle": "DIGIVOLUTION",
+    "privateDescription": "DIGIVOLUTIONのサービスページです。"
   },
   "common": {
     "preparing": "サービス準備中です。"

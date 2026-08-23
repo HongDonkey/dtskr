@@ -17,7 +17,18 @@ const resources = {
 } as const
 
 const savedLanguage = window.localStorage.getItem('language')
-const initialLanguage = savedLanguage === 'EN' ? 'en' : savedLanguage === 'JP' ? 'jp' : 'ko'
+const requestedLanguage = new URLSearchParams(window.location.search).get('lang')
+const initialLanguage = requestedLanguage === 'en'
+  ? 'en'
+  : requestedLanguage === 'ja' || requestedLanguage === 'jp'
+    ? 'jp'
+    : requestedLanguage === 'ko'
+      ? 'ko'
+      : savedLanguage === 'EN'
+        ? 'en'
+        : savedLanguage === 'JP'
+          ? 'jp'
+          : 'ko'
 
 void i18n.use(initReactI18next).init({
   resources,

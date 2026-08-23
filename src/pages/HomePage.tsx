@@ -44,7 +44,7 @@ export function HomePage() {
     <Grid container component="section" className="hero" id="top" sx={{ alignItems: 'center' }}>
       <Box className="hero-grid" />
       <Grid size={{ xs: 12, md: 7 }} className="hero-copy"><Typography component="p" className="eyebrow">DIGIVOLUTION NAVIGATOR / 01</Typography><Typography component="h1">{t('hero.title1')}<br />{t('hero.title2')}<br /><Typography component="em">{t('hero.title3')}</Typography>{t('hero.title4')}</Typography><Typography component="p">{t('hero.description')}</Typography></Grid>
-      <Grid size={{ xs: 12, md: 5 }} className="digital-core"><Box component="span" className="orbit one" aria-hidden="true" /><Box component="span" className="orbit two" aria-hidden="true" /><Box component="img" className="hero-digivice" src="/hero-digivice.png" alt="" aria-hidden="true" /><Box component="button" type="button" className="admin-hotspot" tabIndex={-1} aria-label={t('admin.hiddenAccess')} onClick={openAdminLogin} /></Grid>
+      <Grid size={{ xs: 12, md: 5 }} className="digital-core"><Box component="span" className="orbit one" aria-hidden="true" /><Box component="span" className="orbit two" aria-hidden="true" /><Box component="img" className="hero-digivice" src="/hero-digivice.png" alt="" aria-hidden="true" draggable={false} onClick={openAdminLogin} /></Grid>
     </Grid>
 
     <SearchSection selectedDigimon={selected} onSelect={selectDigimon} />

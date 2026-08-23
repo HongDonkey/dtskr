@@ -20,7 +20,7 @@ export function PrivacyPolicyPage() {
 
           <section><Typography component="h2">{t('privacy.purposeTitle')}</Typography><Typography>{t('privacy.purpose')}</Typography></section>
           <section><Typography component="h2">{t('privacy.itemsTitle')}</Typography><Typography component="p">{t('privacy.itemsRequired')}</Typography><Typography component="p">{t('privacy.itemsAutomatic')}</Typography><Typography component="p">{t('privacy.itemsOptional')}</Typography></section>
-          <section><Typography component="h2">{t('privacy.retentionTitle')}</Typography><Typography component="p">{t('privacy.retentionPosts')}</Typography><Typography component="p">{t('privacy.retentionIp')}</Typography></section>
+          <section><Typography component="h2">{t('privacy.retentionTitle')}</Typography><Typography component="p">{t('privacy.retentionPosts')}</Typography><Typography component="p">{t('privacy.retentionIp')}</Typography><Typography component="p">{t('privacy.visitorStatistics')}</Typography></section>
           <section><Typography component="h2">{t('privacy.sharingTitle')}</Typography><Typography>{t('privacy.sharing')}</Typography></section>
           <section><Typography component="h2">{t('privacy.destructionTitle')}</Typography><Typography>{t('privacy.destruction')}</Typography></section>
           <section><Typography component="h2">{t('privacy.rightsTitle')}</Typography><Typography>{t('privacy.rights')}</Typography></section>

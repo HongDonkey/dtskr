@@ -63,7 +63,9 @@
     }
   },
   "admin": {
-    "hiddenAccess": "숨겨진 관리자 인증 진입점",
+    "todayStatistics": "오늘 방문 통계",
+    "todayVisitors": "오늘 방문자",
+    "totalVisitors": "전체 방문자",
     "title": "관리자 인증",
     "description": "등록된 요청을 확인하려면 관리자 비밀번호를 입력하세요.",
     "loginId": "관리자 아이디",
@@ -97,6 +99,7 @@
     "respondedBy": "{{administrator}} · {{date}}"
   },
   "privacy": {
+    "visitorStatistics": "오늘의 고유 방문자 집계를 위해 IP 주소를 날짜별 식별 해시로 변환하며, 원본 IP는 방문 통계에 저장하지 않습니다. 식별 해시는 2일 후 자동 삭제됩니다.",
     "footerLink": "개인정보 처리방침",
     "back": "이전 화면",
     "title": "개인정보 처리방침",
@@ -159,6 +162,15 @@
     "message1": "당신만의",
     "message2": "진화 경로",
     "message3": "를 완성하세요."
+  },
+  "seo": {
+    "homeTitle": "디지몬 타임 스트레인저 진화트리 | DIGIVOLUTION",
+    "homeDescription": "디지몬 타임 스트레인저의 디지몬 진화 경로, 이전·다음 진화체와 진화 조건을 한눈에 확인하세요.",
+    "detailTitle": "{{name}} 진화 경로와 조건 | DIGIVOLUTION",
+    "detailLoadingTitle": "디지몬 상세 정보 | DIGIVOLUTION",
+    "detailDescription": "{{name}}({{stage}}, {{type}})의 진화 경로와 진화 조건: {{condition}}",
+    "privateTitle": "DIGIVOLUTION",
+    "privateDescription": "DIGIVOLUTION 서비스 페이지입니다."
   },
   "common": {
     "preparing": "서비스 준비중입니다"
