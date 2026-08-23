@@ -164,8 +164,8 @@
     "message3": "를 완성하세요."
   },
   "seo": {
-    "homeTitle": "디지몬 타임 스트레인저 진화트리 | DIGIVOLUTION",
-    "homeDescription": "디지몬 타임 스트레인저의 디지몬 진화 경로, 이전·다음 진화체와 진화 조건을 한눈에 확인하세요.",
+    "homeTitle": "디지몬 스토리 타임 스트레인저 진화 트리·진화 조건 | DIGIVOLUTION",
+    "homeDescription": "디지몬 스토리 타임 스트레인저 진화 트리와 진화 조건을 확인하세요. 디지몬 타임스트레인저의 이전·다음 진화 경로를 제공합니다.",
     "detailTitle": "{{name}} 진화 경로와 조건 | DIGIVOLUTION",
     "detailLoadingTitle": "디지몬 상세 정보 | DIGIVOLUTION",
     "detailDescription": "{{name}}({{stage}}, {{type}})의 진화 경로와 진화 조건: {{condition}}",
