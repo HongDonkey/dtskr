@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { getDigimonCounts, getEvolutionCount } from '../api/digimon'
 import { EvolutionRouteSection } from '../components/EvolutionRouteSection'
 import { SearchSection } from '../components/SearchSection'
+import { SideRailAds } from '../components/SideRailAds'
 import type { DigimonSummary } from '../types/digimon'
 import type { AppOutletContext } from '../types/layout'
 import { catalogAllLabel } from '../utils/language'
@@ -47,6 +48,7 @@ export function HomePage() {
       <Grid size={{ xs: 12, md: 5 }} className="digital-core"><Box component="span" className="orbit one" aria-hidden="true" /><Box component="span" className="orbit two" aria-hidden="true" /><Box component="img" className="hero-digivice" src="/hero-digivice.png" alt="" aria-hidden="true" draggable={false} onClick={openAdminLogin} /></Grid>
     </Grid>
 
+    <SideRailAds />
     <SearchSection selectedDigimon={selected} onSelect={selectDigimon} />
     <EvolutionRouteSection digimon={selected} />
 

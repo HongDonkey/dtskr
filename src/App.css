@@ -275,6 +275,31 @@ nav .active {
 .route-section {
   scroll-margin-top: 96px;
 }
+.side-ad-rail {
+  display: none;
+}
+@media (min-width: 1880px) {
+  .side-ad-rail {
+    position: absolute;
+    z-index: 1;
+    top: 620px;
+    display: block;
+    width: 300px;
+    min-height: 600px;
+    overflow: hidden;
+  }
+  .side-ad-rail-left {
+    left: max(20px, calc(50% - 924px));
+  }
+  .side-ad-rail-right {
+    right: max(20px, calc(50% - 924px));
+  }
+  .side-ad-unit {
+    display: block;
+    width: 300px;
+    height: 600px;
+  }
+}
 .panel-heading,
 .route-heading {
   display: flex;
