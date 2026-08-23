@@ -59,6 +59,7 @@ Deploy helper:
 - Frontend repository: `bash deploy/deploy-frontend.sh`
 - It runs `npm ci`, lint, production build, synchronizes `dist/` to `/var/www/digivolutionlab`, and checks the public URL.
 - Nginx restart is unnecessary for static-file changes.
+- `/var/www/digivolutionlab` must be writable by the deployment account; the script does not use `sudo`.
 - Overrides: `DTSKR_FRONTEND_DEPLOY_DIR`, `DTSKR_FRONTEND_URL`.
 
 API:

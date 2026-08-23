@@ -35,9 +35,9 @@ npm run build
 [[ -f "${DIST_DIR}/index.html" ]] || fail "Build output is missing: ${DIST_DIR}/index.html"
 
 echo "Deploying dist/ to ${RESOLVED_DEPLOY_DIR}..."
-sudo -v
-sudo mkdir -p -- "${RESOLVED_DEPLOY_DIR}"
-sudo rsync --archive --delete --delay-updates "${DIST_DIR}/" "${RESOLVED_DEPLOY_DIR}/"
+[[ -d "${RESOLVED_DEPLOY_DIR}" ]] || fail "Deployment directory does not exist: ${RESOLVED_DEPLOY_DIR}"
+[[ -w "${RESOLVED_DEPLOY_DIR}" ]] || fail "Deployment directory is not writable by $(id -un): ${RESOLVED_DEPLOY_DIR}"
+rsync --archive --delete --delay-updates "${DIST_DIR}/" "${RESOLVED_DEPLOY_DIR}/"
 
 for attempt in {1..5}; do
   if curl --silent --show-error --fail --max-time 10 \
