@@ -66,7 +66,6 @@
     "todayStatistics": "Today's visit statistics",
     "todayVisitors": "Visitors today",
     "totalVisitors": "Total visitors",
-    "hiddenAccess": "Hidden administrator access",
     "title": "Administrator Authentication",
     "description": "Enter the administrator password to view registered requests.",
     "loginId": "Administrator ID",

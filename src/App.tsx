@@ -42,7 +42,7 @@ function App() {
     <Box component="main" className="app-shell">
       <AppBar component="header" position="sticky" elevation={0} className="topbar"><Toolbar disableGutters>
         <Link className="brand" component={RouterLink} to="/" underline="none"><Box component="span" className="brand-mark">◇</Box>DIGIVOLUTION <Typography component="small">{language}</Typography></Link>
-        <Stack component="nav" direction="row" spacing={3.75}><Link className={isHome ? 'active' : undefined} href="/#planner" underline="none">{t('nav.planner')}</Link><Link href={referenceUrlByLanguage[language]} target="_blank" rel="noreferrer" underline="none">{t('nav.dex')}</Link><Link component={RouterLink} className={isRequestBoard ? 'active' : undefined} to="/requests" underline="none">{t('nav.guide')}</Link></Stack>
+        <Stack component="nav" direction="row" spacing={3.75}><Link className={isHome ? 'active' : undefined} href="/#planner" underline="none">{t('nav.planner')}</Link><Link href={referenceUrlByLanguage[language]} target="_blank" rel="noreferrer" underline="none" onClick={(event) => event.currentTarget.blur()}>{t('nav.dex')}</Link><Link component={RouterLink} className={isRequestBoard ? 'active' : undefined} to="/requests" underline="none">{t('nav.guide')}</Link></Stack>
         <Box className="language-switcher" role="group" aria-label={t('nav.language')}>{(['KR', 'EN', 'JP'] as const).map((item) => <Button key={item} className={`language-button ${language === item ? 'active' : ''}`} onClick={() => selectLanguage(item)} aria-pressed={language === item}>{item}</Button>)}</Box>
       </Toolbar></AppBar>
 
