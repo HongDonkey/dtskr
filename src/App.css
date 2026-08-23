@@ -453,13 +453,13 @@ nav .active {
   letter-spacing: 0.08em;
 }
 .attribute-select.MuiInputBase-root {
-  width: 100%;
+  width: 70%;
   height: 36px;
   border: 1px solid rgba(130, 208, 255, 0.24);
   border-radius: 2px;
   background: #0b2449;
   color: #a8bdd3;
-  font-size: 12px;
+  font-size: 13px;
 }
 .attribute-select.MuiInputBase-root:hover,
 .attribute-select.Mui-focused {
@@ -3409,16 +3409,36 @@ footer a {
     flex: none !important;
   }
 
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(1) { grid-area: 1 / 1; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(2) { grid-area: 2 / 1; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(3) { grid-area: 2 / 2; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(4) { grid-area: 2 / 3; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(5) { grid-area: 3 / 1; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(6) { grid-area: 3 / 2; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(7) { grid-area: 3 / 3; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(8) { grid-area: 4 / 1; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(9) { grid-area: 4 / 2; }
-  .filters.MuiGrid-root > .MuiGrid-root:nth-child(10) { grid-area: 5 / 1 / 6 / 3; }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(1) {
+    grid-area: 1 / 1;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(2) {
+    grid-area: 2 / 1;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(3) {
+    grid-area: 2 / 2;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(4) {
+    grid-area: 2 / 3;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(5) {
+    grid-area: 3 / 1;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(6) {
+    grid-area: 3 / 2;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(7) {
+    grid-area: 3 / 3;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(8) {
+    grid-area: 4 / 1;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(9) {
+    grid-area: 4 / 2;
+  }
+  .filters.MuiGrid-root > .MuiGrid-root:nth-child(10) {
+    grid-area: 5 / 1 / 6 / 3;
+  }
 
   .filters .MuiButton-root {
     width: 100%;
