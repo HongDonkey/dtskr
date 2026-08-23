@@ -13,6 +13,10 @@
     "on": "ON",
     "off": "OFF"
   },
+  "attributes": {
+    "label": "Attribute Filter",
+    "all": "All Attributes"
+  },
   "stages": {
     "all": "All",
     "baby1": "Baby",

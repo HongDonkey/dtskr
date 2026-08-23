@@ -1,6 +1,6 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { Box, Button, InputBase, Typography } from '@mui/material'
+import { Box, Button, InputBase, MenuItem, Select, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { useTranslation } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
@@ -28,6 +28,29 @@ const stageFilters = [
 ] as const
 type StageKey = (typeof stageFilters)[number]['key']
 const emptyDigimons: DigimonSummary[] = []
+const searchStateKey = 'digivolution:search-state'
+
+type StoredSearchState = {
+  stageKey: StageKey
+  attribute: string
+  query: string
+  isListExpanded: boolean
+}
+
+const readSearchState = (): StoredSearchState => {
+  try {
+    const stored = JSON.parse(sessionStorage.getItem(searchStateKey) ?? '{}') as Partial<StoredSearchState>
+    const validStage = stageFilters.some((filter) => filter.key === stored.stageKey)
+    return {
+      stageKey: validStage ? stored.stageKey! : 'all',
+      attribute: typeof stored.attribute === 'string' ? stored.attribute : '',
+      query: typeof stored.query === 'string' ? stored.query : '',
+      isListExpanded: stored.isListExpanded === true,
+    }
+  } catch {
+    return { stageKey: 'all', attribute: '', query: '', isListExpanded: false }
+  }
+}
 
 export function SearchSection({
   selectedDigimon,
@@ -37,10 +60,12 @@ export function SearchSection({
   onSelect: (digimon: DigimonSummary) => void
 }) {
   const { t, i18n } = useTranslation('search')
-  const [stageKey, setStageKey] = useState<StageKey>('all')
+  const [initialState] = useState(readSearchState)
+  const [stageKey, setStageKey] = useState<StageKey>(initialState.stageKey)
+  const [selectedAttribute, setSelectedAttribute] = useState(initialState.attribute)
   const [manuallySelectedQuery, setManuallySelectedQuery] = useState<string | null>(null)
-  const [isListExpanded, setIsListExpanded] = useState(false)
-  const [query, setQuery] = useState('')
+  const [isListExpanded, setIsListExpanded] = useState(initialState.isListExpanded)
+  const [query, setQuery] = useState(initialState.query)
   const normalizedQuery = query.trim()
   const selectedFilter = stageFilters.find((item) => item.key === stageKey)!
   const stageName = useCallback(
@@ -81,12 +106,18 @@ export function SearchSection({
     ? (searchedDigimons ?? emptyDigimons)
     : (queriedDigimons ?? emptyDigimons)
   const visibleStageName = stageName(visibleFilter)
-  const results = useMemo(
-    () =>
-      visibleStageKey === 'all'
-        ? digimons
-        : digimons.filter((item) => item.stage === visibleStageName),
+  const stageResults = useMemo(
+    () => visibleStageKey === 'all' ? digimons : digimons.filter((item) => item.stage === visibleStageName),
     [digimons, visibleStageName, visibleStageKey]
+  )
+  const attributes = useMemo(
+    () => [...new Set(stageResults.map((item) => item.attribute).filter(Boolean))].sort((a, b) => a.localeCompare(b, i18n.language)),
+    [i18n.language, stageResults]
+  )
+  const activeAttribute = attributes.includes(selectedAttribute) ? selectedAttribute : ''
+  const results = useMemo(
+    () => activeAttribute ? stageResults.filter((item) => item.attribute === activeAttribute) : stageResults,
+    [activeAttribute, stageResults]
   )
   const searchCounts = useMemo(
     () =>
@@ -102,8 +133,13 @@ export function SearchSection({
   const serverOnline = !isSystemHealthError && systemHealth?.server === 'UP'
   const databaseOnline = serverOnline && systemHealth?.database === 'UP'
 
+  useEffect(() => {
+    sessionStorage.setItem(searchStateKey, JSON.stringify({ stageKey, attribute: selectedAttribute, query, isListExpanded }))
+  }, [isListExpanded, query, selectedAttribute, stageKey])
+
   const selectStage = (next: StageKey) => {
     setStageKey(next)
+    setSelectedAttribute('')
     setManuallySelectedQuery(normalizedQuery || null)
     setIsListExpanded(next !== 'all' || Boolean(normalizedQuery))
   }
@@ -172,6 +208,26 @@ export function SearchSection({
         })}
       </Grid>
       <Box className="result-controls">
+        <Box className="attribute-filter-group" aria-label={t('attributes.label')}>
+          <Typography component="label" className="attribute-filter-title" htmlFor="attribute-filter">
+            {t('attributes.label')}
+          </Typography>
+          <Select
+            id="attribute-filter"
+            className="attribute-select"
+            value={activeAttribute}
+            displayEmpty
+            onChange={(event) => {
+              setSelectedAttribute(event.target.value)
+              setIsListExpanded(true)
+            }}
+            inputProps={{ 'aria-label': t('attributes.label') }}
+            MenuProps={{ classes: { paper: 'attribute-select-menu' } }}
+          >
+            <MenuItem value="">{t('attributes.all')}</MenuItem>
+            {attributes.map((attribute) => <MenuItem key={attribute} value={attribute}>{attribute}</MenuItem>)}
+          </Select>
+        </Box>
         <Button
           className="result-toggle"
           onClick={() => setIsListExpanded((value) => !value)}

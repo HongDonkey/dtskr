@@ -13,6 +13,10 @@
     "on": "ON",
     "off": "OFF"
   },
+  "attributes": {
+    "label": "속성 필터",
+    "all": "전체 속성"
+  },
   "stages": {
     "all": "전체",
     "baby1": "유년기1",
