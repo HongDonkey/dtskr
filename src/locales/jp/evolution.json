@@ -18,6 +18,37 @@
     "condition": "進化条件",
     "noCondition": "登録された条件情報がありません。",
     "expand": "展開",
-    "collapse": "折りたたむ"
+    "collapse": "折りたたむ",
+    "personality": {
+      "openLabel": "性格「{{personality}}」の説明を見る",
+      "groupLabel": "性格タイプ",
+      "coreStat": "主な成長",
+      "detailLabel": "固有効果",
+      "personalGrowth": "個別成長",
+      "details": {
+        "zealous": { "stat": "素早さ", "title": "熱血のガード回復術", "effect": "ガード中にダメージを受けるとHPを3%回復します。" },
+        "brave": { "stat": "SP", "title": "勇敢の物理貫通術", "effect": "物理の通常攻撃時、相手の防御力をエージェントランクに応じて無視します。" },
+        "reckless": { "stat": "HP", "title": "蛮勇の装備強化術", "effect": "攻撃力増加装備の効果が10%増加します。" },
+        "daring": { "stat": "防御力", "title": "豪胆の物理防御術", "effect": "ガード中に受ける物理ダメージをエージェントランクに応じて追加軽減します。" },
+        "opportunistic": { "stat": "精神", "title": "日和見の待機回復術", "effect": "待機中、3ラウンドごとにHP15%とSP10%を回復します。" },
+        "friendly": { "stat": "攻撃力", "title": "気さくな性格変化術", "effect": "会話や特訓後に性格スキルが変わる確率が10%増加します。" },
+        "sociable": { "stat": "SP", "title": "社交的なアイテム強化術", "effect": "このデジモンのターンに使用したバフアイテムの効果が2倍になります。" },
+        "compassionate": { "stat": "HP", "title": "人情家のアイテム節約術", "effect": "このデジモンのターンにアイテムを使うと30%の確率で消費しません。" },
+        "adoring": { "stat": "防御力", "title": "慈愛のHP装備強化術", "effect": "HP増加装備の効果が10%増加します。" },
+        "devoted": { "stat": "知力", "title": "献身的な回復強化術", "effect": "このデジモンに使うアイテムのHP回復量が10%増加します。" },
+        "tolerant": { "stat": "SP", "title": "包容力のSP装備強化術", "effect": "SP増加装備の効果が10%増加します。" },
+        "overprotective": { "stat": "HP", "title": "過保護の回復術強化", "effect": "HP回復スキルの回復量が10%増加します。" },
+        "enlightened": { "stat": "SP", "title": "天啓のアイテム獲得術", "effect": "倒した敵がドロップするアイテム数が10%増加します。" },
+        "sly": { "stat": "HP", "title": "悪知恵のYEN獲得術", "effect": "倒した敵がドロップするYENが20%増加します。" },
+        "astute": { "stat": "素早さ", "title": "聡慧の魔法貫通術", "effect": "魔法の通常攻撃時、相手の精神をエージェントランクに応じて無視します。" },
+        "strategic": { "stat": "精神", "title": "戦略家の魔法防御術", "effect": "受ける魔法ダメージをエージェントランクに応じて軽減します。" }
+      },
+      "groups": {
+        "valor": { "name": "勇猛", "stat": "攻撃力", "description": "攻撃力の成長を重視する勇猛タイプの性格" },
+        "amicability": { "name": "友好", "stat": "防御力", "description": "防御力の成長を重視する友好タイプの性格" },
+        "philanthropy": { "name": "博愛", "stat": "精神力", "description": "精神力の成長を重視する博愛タイプの性格" },
+        "wisdom": { "name": "知恵", "stat": "知力", "description": "知力の成長を重視する知恵タイプの性格" }
+      }
+    }
   }
 }

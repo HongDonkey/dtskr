@@ -18,6 +18,37 @@
     "condition": "진화 조건",
     "noCondition": "등록된 조건 정보가 없습니다.",
     "expand": "펼치기",
-    "collapse": "접기"
+    "collapse": "접기",
+    "personality": {
+      "openLabel": "{{personality}} 성격 설명 보기",
+      "groupLabel": "성격 계열",
+      "coreStat": "중심 성장",
+      "detailLabel": "고유 효과",
+      "personalGrowth": "개별 성장",
+      "details": {
+        "zealous": { "stat": "민첩", "title": "열혈의 가호", "effect": "가드 상태에서 데미지를 받으면 HP 3% 회복" },
+        "brave": { "stat": "SP", "title": "용감한 일격", "effect": "물리공격으로 어택(기본공격)할 때, 상대의 방어력을 에이전트 랭크×3% 무시" },
+        "reckless": { "stat": "HP", "title": "만용의 힘 장식", "effect": "공격력 증가 장비 효과가 10% 증가" },
+        "daring": { "stat": "방어력", "title": "대담한 벽", "effect": "가드 시 받는 물리 데미지를 에이전트 랭크×10% 추가로 경감" },
+        "opportunistic": { "stat": "정신력", "title": "기회주의자의 휴식", "effect": "대기 중 3라운드마다 HP 15%, SP 10% 회복" },
+        "friendly": { "stat": "공격력", "title": "친근한 변덕", "effect": "대화하거나 특훈했을 때 성격 스킬이 바뀔 확률 10% 증가" },
+        "sociable": { "stat": "SP", "title": "사교적인 도구 강화술", "effect": "사교적인 디지몬의 턴에 아이템을 사용하면, 아이템 사용으로 인한 버프 효과가 2배" },
+        "compassionate": { "stat": "HP", "title": "따뜻한 도구술", "effect": "따뜻함인 디지몬의 턴에 아이템을 사용하면, 30% 확률로 아이템을 소비하지 않음" },
+        "adoring": { "stat": "방어력", "title": "자애의 생명 장식", "effect": "HP 증가 장비 효과 10% 증가" },
+        "devoted": { "stat": "지력", "title": "헌신적인 도구", "effect": "헌신적인 디지몬에게 사용하는 아이템의 HP 회복량 10% 증가" },
+        "tolerant": { "stat": "SP", "title": "포용력의 마음 장식", "effect": "SP 증가 장비 효과 10% 증가" },
+        "overprotective": { "stat": "HP", "title": "과보호적 치료술", "effect": "HP 회복 스킬을 사용 시 회복량 10% 증가" },
+        "enlightened": { "stat": "SP", "title": "계시의 은혜", "effect": "격파한 적이 드롭하는 아이템의 개수 10% 증가" },
+        "sly": { "stat": "HP", "title": "잔머리의 자금줄", "effect": "격파한 적이 드롭하는 YEN 20% 증가" },
+        "astute": { "stat": "민첩", "title": "지혜로운 일격", "effect": "마법공격으로 어택(기본공격)할 때, 상대의 정신력을 에이전트 랭크×3% 무시" },
+        "strategic": { "stat": "정신력", "title": "전략가의 방벽", "effect": "받는 마법 데미지를 에이전트 랭크×1% 경감" }
+      },
+      "groups": {
+        "valor": { "name": "용맹", "stat": "공격력", "description": "공격력 성장을 중심으로 하는 용맹 계열 성격" },
+        "amicability": { "name": "우호", "stat": "방어력", "description": "방어력 성장을 중심으로 하는 우호 계열 성격" },
+        "philanthropy": { "name": "박애", "stat": "정신력", "description": "정신력 성장을 중심으로 하는 박애 계열 성격" },
+        "wisdom": { "name": "지계", "stat": "지력", "description": "지력 성장을 중심으로 하는 지계 계열 성격" }
+      }
+    }
   }
 }

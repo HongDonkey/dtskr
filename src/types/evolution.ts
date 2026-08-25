@@ -21,6 +21,7 @@ export type EvolutionTreeNode = {
   digimonId: number
   name: string
   stage: string
+  personality: string
   type: string
   symbol: string
   pixelImageUrl?: string | null

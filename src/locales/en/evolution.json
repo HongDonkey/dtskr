@@ -18,6 +18,37 @@
     "condition": "Evolution Requirements",
     "noCondition": "No requirements are registered.",
     "expand": "Expand",
-    "collapse": "Collapse"
+    "collapse": "Collapse",
+    "personality": {
+      "openLabel": "View details for the {{personality}} personality",
+      "groupLabel": "Personality Group",
+      "coreStat": "Primary Growth",
+      "detailLabel": "Unique Effect",
+      "personalGrowth": "Personal Growth",
+      "details": {
+        "zealous": { "stat": "AGI", "title": "Zealous Guard Recovery", "effect": "Recovers 3% HP when taking damage while guarding." },
+        "brave": { "stat": "SP", "title": "Brave Physical Pierce", "effect": "Basic physical attacks ignore the target's DEF based on Agent Rank." },
+        "reckless": { "stat": "HP", "title": "Reckless Equipment Boost", "effect": "Increases the effects of ATK-boosting equipment by 10%." },
+        "daring": { "stat": "DEF", "title": "Daring Physical Guard", "effect": "Further reduces physical damage while guarding based on Agent Rank." },
+        "opportunistic": { "stat": "SPI", "title": "Opportunistic Reserve Recovery", "effect": "Recovers 15% HP and 10% SP every 3 rounds while in reserve." },
+        "friendly": { "stat": "ATK", "title": "Friendly Personality Shift", "effect": "Raises the chance of personality skills changing after talking or special training by 10%." },
+        "sociable": { "stat": "SP", "title": "Sociable Item Boost", "effect": "Doubles buff effects from items used during this Digimon's turn." },
+        "compassionate": { "stat": "HP", "title": "Compassionate Item Saver", "effect": "Items used during this Digimon's turn have a 30% chance not to be consumed." },
+        "adoring": { "stat": "DEF", "title": "Adoring HP Equipment Boost", "effect": "Increases the effects of HP-boosting equipment by 10%." },
+        "devoted": { "stat": "INT", "title": "Devoted Recovery Boost", "effect": "Items used on this Digimon recover 10% more HP." },
+        "tolerant": { "stat": "SP", "title": "Tolerant SP Equipment Boost", "effect": "Increases the effects of SP-boosting equipment by 10%." },
+        "overprotective": { "stat": "HP", "title": "Overprotective Healing Boost", "effect": "HP recovery skills restore 10% more HP." },
+        "enlightened": { "stat": "SP", "title": "Enlightened Item Find", "effect": "Defeated enemies drop 10% more items." },
+        "sly": { "stat": "HP", "title": "Sly Yen Find", "effect": "Defeated enemies drop 20% more YEN." },
+        "astute": { "stat": "AGI", "title": "Astute Magic Pierce", "effect": "Basic magic attacks ignore the target's SPI based on Agent Rank." },
+        "strategic": { "stat": "SPI", "title": "Strategic Magic Guard", "effect": "Reduces magic damage taken based on Agent Rank." }
+      },
+      "groups": {
+        "valor": { "name": "Valor", "stat": "Attack", "description": "Valor personality focused on Attack growth" },
+        "amicability": { "name": "Amicability", "stat": "Defense", "description": "Amicability personality focused on Defense growth" },
+        "philanthropy": { "name": "Philanthropy", "stat": "Spirit", "description": "Philanthropy personality focused on Spirit growth" },
+        "wisdom": { "name": "Wisdom", "stat": "Intelligence", "description": "Wisdom personality focused on Intelligence growth" }
+      }
+    }
   }
 }
