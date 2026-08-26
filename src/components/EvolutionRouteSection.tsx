@@ -96,6 +96,15 @@ function PersonalityBadge({ personality }: { personality: string }) {
         <Typography component="small">{t('evolution.personality.personalGrowth')}</Typography>
         <Typography component="b">{t(`evolution.personality.details.${detailKey}.stat`)}</Typography>
       </Box>
+      <Box className="personality-rarity">
+        <Typography component="small">{t('evolution.personality.rarityLabel')}</Typography>
+        {(['first', 'second'] as const).map((skill) => (
+          <Box className="personality-rarity-item" key={skill}>
+            <Typography component="strong">{t(`evolution.personality.rarity.${detailKey}.${skill}.title`)}</Typography>
+            <Typography component="p">{t(`evolution.personality.rarity.${detailKey}.${skill}.effect`)}</Typography>
+          </Box>
+        ))}
+      </Box>
     </Box>
   )
 
