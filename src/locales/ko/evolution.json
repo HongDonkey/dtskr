@@ -18,6 +18,56 @@
     "condition": "진화 조건",
     "noCondition": "등록된 조건 정보가 없습니다.",
     "expand": "펼치기",
-    "collapse": "접기"
+    "collapse": "접기",
+    "personality": {
+      "openLabel": "{{personality}} 성격 설명 보기",
+      "groupLabel": "성격 계열",
+      "coreStat": "중심 성장",
+      "detailLabel": "고유 효과",
+      "personalGrowth": "개별 성장",
+      "rarityLabel": "레어리티 성격",
+      "rarity": {
+        "adoring": { "first": { "title": "뒤쫓기", "effect": "행동 순서가 맨 마지막으로 고정된다" }, "second": { "title": "협력 기도", "effect": "매 라운드 시작 시 아군 전원의 HP를 소량 회복시켜 준다" } },
+        "devoted": { "first": { "title": "응급처치", "effect": "자신의 스킬로 아군을 회복시켰다면, 부상도 회복된다" }, "second": { "title": "흔들림 없는 정신", "effect": "자신의 HP가 높을수록 정신이 증가한다" } },
+        "tolerant": { "first": { "title": "불굴의 정신", "effect": "자신의 HP가 90% 이하일 때, HP가 낮을수록 정신이 증가한다" }, "second": { "title": "재기의 축복", "effect": "전투불능 상태에 빠지면, 배틀 중 한 번만 HP 50%로 부활한다" } },
+        "overprotective": { "first": { "title": "선봉장", "effect": "행동 순서가 늘 첫 번째가 된다" }, "second": { "title": "커다란 포옹", "effect": "회복 스킬 사용 시 최대 HP 200%까지 HP를 회복할 수 있다" } },
+        "zealous": { "first": { "title": "선봉장", "effect": "행동 순서가 늘 첫 번째가 된다" }, "second": { "title": "속공", "effect": "3라운드 동안 공격력이 증가, 라운드가 빠를수록 공격력이 높아진다" } },
+        "brave": { "first": { "title": "스트라이크 플러스의 극의", "effect": "스트라이크 플러스 발생 시 다시 추가로 공격한다" }, "second": { "title": "활력 강탈", "effect": "물리 공격 스킬로 가한 데미지의 10%만큼 자신의 HP를 회복한다" } },
+        "reckless": { "first": { "title": "불굴의 힘", "effect": "자신의 HP가 90% 이하일 때, HP가 낮을수록 공격력이 증가한다" }, "second": { "title": "카운터", "effect": "공격받으면 일정 확률로 어택으로 반격, 자신의 HP가 낮을수록 반격 확률이 증가한다" } },
+        "daring": { "first": { "title": "흔들림 없는 수호", "effect": "자신의 HP가 높을수록 방어력이 증가한다" }, "second": { "title": "작전 지령", "effect": "크리티컬 발생률이 5% 증가한다" } },
+        "enlightened": { "first": { "title": "단기 집중", "effect": "3라운드 동안 지력이 증가, 라운드가 빠를수록 지력이 높아진다" }, "second": { "title": "혼신의 일격", "effect": "크리티컬 데미지가 20% 증가한다" } },
+        "sly": { "first": { "title": "편안한 명상", "effect": "4라운드 이후 지력이 증가, 라운드가 경과할수록 지력이 높아진다" }, "second": { "title": "연속 마법", "effect": "마법 공격 스킬 사용 시 일정 확률로 같은 스킬을 발동한다" } },
+        "astute": { "first": { "title": "불굴의 마음", "effect": "자신의 HP가 90% 이하일 때, HP가 낮을수록 지력이 증가한다" }, "second": { "title": "마력 강탈", "effect": "마법 공격 스킬로 가한 데미지의 10%만큼 자신의 SP를 회복한다" } },
+        "strategic": { "first": { "title": "뒤쫓기", "effect": "행동 순서가 맨 마지막으로 고정된다" }, "second": { "title": "안식의 노래", "effect": "매 라운드 시작 시 아군 전원의 SP를 조금씩 회복한다" } },
+        "opportunistic": { "first": { "title": "슬로 스타터", "effect": "4라운드 이후 공격력이 증가, 라운드가 경과할수록 공격력이 높아진다" }, "second": { "title": "사전 대책", "effect": "배틀 시작 시, 배틀 멤버의 우정치 합이 높을수록, 많은 적의 방어력과 정신을 감소시킨다" } },
+        "friendly": { "first": { "title": "작전 지령", "effect": "크리티컬 발생률이 5% 증가한다" }, "second": { "title": "응원 차지", "effect": "자신의 스킬로 아군의 HP가 회복될 때, 회복한 아군의 모든 스테이터스가 증가한다" } },
+        "sociable": { "first": { "title": "야유", "effect": "자신의 스킬로 발동한 디버프 효과의 지속 턴 수가 2턴 증가한다" }, "second": { "title": "약점 연타", "effect": "아군과 함께 적의 약점을 연속으로 공격하면, 자신의 공격 데미지가 증가한다" } },
+        "compassionate": { "first": { "title": "흔들림 없는 힘", "effect": "자신의 HP가 높을수록 공격력이 증가한다" }, "second": { "title": "허슬 치어", "effect": "자신의 스킬로 발동한 버프 효과의 지속 턴 수가 2턴 증가한다" } }
+      },
+      "details": {
+        "zealous": { "stat": "민첩", "title": "열혈의 가호", "effect": "가드 상태에서 데미지를 받으면 HP 3% 회복" },
+        "brave": { "stat": "SP", "title": "용감한 일격", "effect": "물리공격으로 어택(기본공격)할 때, 상대의 방어력을 에이전트 랭크×3% 무시" },
+        "reckless": { "stat": "HP", "title": "만용의 힘 장식", "effect": "공격력 증가 장비 효과가 10% 증가" },
+        "daring": { "stat": "방어력", "title": "대담한 벽", "effect": "가드 시 받는 물리 데미지를 에이전트 랭크×10% 추가로 경감" },
+        "opportunistic": { "stat": "정신력", "title": "기회주의자의 휴식", "effect": "대기 중 3라운드마다 HP 15%, SP 10% 회복" },
+        "friendly": { "stat": "공격력", "title": "친근한 변덕", "effect": "대화하거나 특훈했을 때 성격 스킬이 바뀔 확률 10% 증가" },
+        "sociable": { "stat": "SP", "title": "사교적인 도구 강화술", "effect": "사교적인 디지몬의 턴에 아이템을 사용하면, 아이템 사용으로 인한 버프 효과가 2배" },
+        "compassionate": { "stat": "HP", "title": "따뜻한 도구술", "effect": "따뜻함인 디지몬의 턴에 아이템을 사용하면, 30% 확률로 아이템을 소비하지 않음" },
+        "adoring": { "stat": "방어력", "title": "자애의 생명 장식", "effect": "HP 증가 장비 효과 10% 증가" },
+        "devoted": { "stat": "지력", "title": "헌신적인 도구", "effect": "헌신적인 디지몬에게 사용하는 아이템의 HP 회복량 10% 증가" },
+        "tolerant": { "stat": "SP", "title": "포용력의 마음 장식", "effect": "SP 증가 장비 효과 10% 증가" },
+        "overprotective": { "stat": "HP", "title": "과보호적 치료술", "effect": "HP 회복 스킬을 사용 시 회복량 10% 증가" },
+        "enlightened": { "stat": "SP", "title": "계시의 은혜", "effect": "격파한 적이 드롭하는 아이템의 개수 10% 증가" },
+        "sly": { "stat": "HP", "title": "잔머리의 자금줄", "effect": "격파한 적이 드롭하는 YEN 20% 증가" },
+        "astute": { "stat": "민첩", "title": "지혜로운 일격", "effect": "마법공격으로 어택(기본공격)할 때, 상대의 정신력을 에이전트 랭크×3% 무시" },
+        "strategic": { "stat": "정신력", "title": "전략가의 방벽", "effect": "받는 마법 데미지를 에이전트 랭크×1% 경감" }
+      },
+      "groups": {
+        "valor": { "name": "용맹", "stat": "공격력", "description": "공격력 성장을 중심으로 하는 용맹 계열 성격" },
+        "amicability": { "name": "우호", "stat": "방어력", "description": "방어력 성장을 중심으로 하는 우호 계열 성격" },
+        "philanthropy": { "name": "박애", "stat": "정신력", "description": "정신력 성장을 중심으로 하는 박애 계열 성격" },
+        "wisdom": { "name": "지계", "stat": "지력", "description": "지력 성장을 중심으로 하는 지계 계열 성격" }
+      }
+    }
   }
 }
