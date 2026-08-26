@@ -3346,7 +3346,7 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
   }
 
   .tree-workspace .tree-node.expanded::after {
-    left: 17px;
+    left: 18px;
   }
 
   .tree-workspace .tree-node-card.MuiButton-root {
