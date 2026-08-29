@@ -3924,6 +3924,28 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
 .patch-note-section ul { display: grid; gap: 7px; margin: 0; padding-left: 18px; }
 .patch-note-section li.MuiTypography-root { color: #d6e4f1; font-size: 13px; line-height: 1.55; }
 
+/* Keep page return actions available while reading long guides and release notes. */
+.patch-notes-shell {
+  padding-top: 58px;
+}
+.patch-notes-back.MuiButton-root {
+  position: fixed;
+  z-index: 4;
+  top: 110px;
+  left: clamp(18px, 5vw, 72px);
+  margin-bottom: 0;
+  background: rgba(5, 27, 61, 0.94);
+  box-shadow: 0 10px 26px rgba(0, 8, 28, 0.3);
+  backdrop-filter: blur(10px);
+}
+.quest-sidebar .quest-board-back.MuiButton-root {
+  position: static;
+  margin: 0 0 20px 10px;
+  background: rgba(5, 27, 61, 0.94);
+  box-shadow: 0 10px 26px rgba(0, 8, 28, 0.3);
+  backdrop-filter: blur(10px);
+}
+
 @media (max-width: 760px) {
   .latest-update-banner {
     grid-template-columns: auto auto minmax(0, 1fr);
@@ -3949,6 +3971,19 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
   .patch-note-content { padding: 20px 17px 22px; }
   .patch-note-content h2 { font-size: 20px; }
   .patch-note-section { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .patch-notes-shell { padding-top: 50px; }
+  .patch-notes-back.MuiButton-root {
+    top: 112px;
+    left: 10px;
+    max-width: calc(100vw - 20px);
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .quest-sidebar .quest-board-back.MuiButton-root {
+    margin: 0 0 14px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 760px) {

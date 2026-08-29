@@ -62,9 +62,9 @@ export function QuestBoardPage() {
         <Button type="button" onClick={scrollToBottom} aria-label={t('scrollBottom')} title={t('scrollBottom')}>↓</Button>
       </Box>
       <Box className="quest-board-shell">
-        <Button component={RouterLink} to="/" className="quest-board-back">&larr; {t('back')}</Button>
         <Box className="quest-board-layout">
           <Box component="aside" className="quest-sidebar">
+            <Button component={RouterLink} to="/" className="quest-board-back">&larr; {t('back')}</Button>
             <Box className="quest-sidebar-section">
               <Typography component="p" className="quest-sidebar-title">{t('contents')}</Typography>
               <Box component="nav" aria-label={t('contents')}>
