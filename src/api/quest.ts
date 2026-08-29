@@ -1,3 +1,5 @@
+import i18n from '../i18n'
+
 export type QuestSummary = {
   id: number
   category: string
@@ -19,13 +21,15 @@ export type QuestDetail = Omit<QuestSummary, 'thumbnailUrl' | 'imageCount'> & {
 }
 
 const loadJson = async <T>(url: string): Promise<T> => {
-  const response = await fetch(url, { cache: 'no-store' })
+  const language = i18n.language.startsWith('en') ? 'en' : i18n.language.startsWith('jp') ? 'jp' : 'ko'
+  const response = await fetch(url, {
+    cache: 'no-store',
+    headers: { 'Accept-Language': language },
+  })
   if (!response.ok) throw new Error(`Failed to load quest information: ${response.status}`)
   return (await response.json()) as T
 }
 
-export const getQuests = (language: string) =>
-  loadJson<QuestSummary[]>(`/api/quests?lang=${encodeURIComponent(language)}`)
+export const getQuests = () => loadJson<QuestSummary[]>('/api/quests')
 
-export const getQuest = (questId: number, language: string) =>
-  loadJson<QuestDetail>(`/api/quests/${questId}?lang=${encodeURIComponent(language)}`)
+export const getQuest = (questId: number) => loadJson<QuestDetail>(`/api/quests/${questId}`)

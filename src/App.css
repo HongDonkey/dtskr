@@ -868,22 +868,38 @@ footer a {
   right: clamp(12px, 2vw, 30px);
   bottom: 28px;
   display: grid;
-  gap: 8px;
+  gap: 0;
+  padding: 5px;
+  border: 1px solid rgba(99, 221, 255, 0.48);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(13, 55, 96, 0.96), rgba(4, 22, 51, 0.98));
+  box-shadow: 0 12px 32px rgba(0, 8, 28, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
 }
 .quest-scroll-controls .MuiButton-root {
   min-width: 44px;
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 1px solid rgba(201, 236, 98, 0.8);
-  border-radius: 0;
+  border: 0;
+  border-radius: 9px;
   color: #c9ec62;
-  background: rgba(5, 27, 61, 0.94);
-  font-size: 22px;
+  background: transparent;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+  transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+.quest-scroll-controls .MuiButton-root + .MuiButton-root {
+  border-top: 1px solid rgba(99, 221, 255, 0.2);
 }
 .quest-scroll-controls .MuiButton-root:hover {
-  color: #061a3a;
-  background: #c9ec62;
+  color: #efffc0;
+  background: rgba(201, 236, 98, 0.13);
+  transform: translateY(-1px);
+}
+.quest-scroll-controls .MuiButton-root:active {
+  transform: translateY(0) scale(0.94);
 }
 .quest-board-back.MuiButton-root {
   margin-bottom: 20px;

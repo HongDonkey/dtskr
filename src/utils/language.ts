@@ -6,13 +6,17 @@ export const languageToLocale: Record<Language, 'ko' | 'en' | 'jp'> = {
   JP: 'jp',
 }
 
-export const languageToSearchLocale: Record<Language, 'ko' | 'en' | 'ja'> = {
+export const languageToSearchLocale: Record<Language, 'ko' | 'en' | 'jp'> = {
+  KR: 'ko',
+  EN: 'en',
+  JP: 'jp',
+}
+
+export const languageToSeoLocale: Record<Language, 'ko' | 'en' | 'ja'> = {
   KR: 'ko',
   EN: 'en',
   JP: 'ja',
 }
-
-export const languageToSeoLocale: Record<Language, 'ko' | 'en' | 'ja'> = languageToSearchLocale
 
 export const searchLocaleToLanguage = (locale: string | null): Language | null => {
   if (locale === 'ko') return 'KR'

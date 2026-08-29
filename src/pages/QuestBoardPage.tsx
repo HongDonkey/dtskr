@@ -5,22 +5,22 @@ import { Link as RouterLink, useOutletContext, useParams } from 'react-router-do
 import { getQuest, getQuests } from '../api/quest'
 import { PageMetadata } from '../components/PageMetadata'
 import type { AppOutletContext } from '../types/layout'
-import { languageToSearchLocale } from '../utils/language'
+import { languageToLocale } from '../utils/language'
 
 export function QuestBoardPage() {
   const { t } = useTranslation('quest')
   const { language } = useOutletContext<AppOutletContext>()
   const { questId } = useParams()
-  const languageCode = languageToSearchLocale[language] === 'ja' ? 'jp' : languageToSearchLocale[language]
+  const languageCode = languageToLocale[language]
 
   const listQuery = useQuery({
     queryKey: ['quests', languageCode],
-    queryFn: () => getQuests(languageCode),
+    queryFn: getQuests,
   })
   const selectedQuestId = questId ? Number(questId) : listQuery.data?.[0]?.id
   const detailQuery = useQuery({
     queryKey: ['quest', selectedQuestId, languageCode],
-    queryFn: () => getQuest(selectedQuestId!, languageCode),
+    queryFn: () => getQuest(selectedQuestId!),
     enabled: Number.isInteger(selectedQuestId),
   })
   const quest = detailQuery.data
