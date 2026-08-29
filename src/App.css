@@ -807,6 +807,9 @@ footer a {
   padding: 8px 20px 18px 4px;
   border-right: 1px solid rgba(86, 179, 228, 0.34);
 }
+.quest-sidebar-section + .quest-sidebar-section {
+  margin-top: 24px;
+}
 .quest-sidebar-title.MuiTypography-root {
   margin: 0 0 16px;
   padding: 0 10px 12px;
@@ -1018,6 +1021,78 @@ footer a {
   font-size: 12px;
   line-height: 1.55;
 }
+.quest-guide-details {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid rgba(86, 179, 228, 0.3);
+  background: rgba(3, 25, 58, 0.62);
+}
+.quest-guide-probabilities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.quest-guide-probabilities p.MuiTypography-root {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  padding: 9px 10px;
+  color: #d8e6f3;
+  background: rgba(27, 66, 107, 0.65);
+}
+.quest-guide-probabilities strong {
+  color: #65ddff;
+  font-size: 10px;
+}
+.quest-guide-drop.MuiTypography-root {
+  margin: 0;
+  color: #f1f7ff;
+}
+.quest-guide-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.quest-guide-legend span {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+.quest-guide-legend i {
+  font-style: normal;
+}
+.quest-guide-legend .normal,
+.quest-guide-route.shortest {
+  color: #ff3b3b;
+}
+.quest-guide-legend .regression,
+.quest-guide-route.chest {
+  color: #ffe600;
+}
+.quest-guide-route {
+  display: grid;
+  gap: 3px;
+}
+.quest-guide-route strong {
+  font-size: 11px;
+}
+.quest-guide-route code {
+  overflow-wrap: anywhere;
+  color: inherit;
+  font-family: 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.65;
+}
+.quest-guide-return.MuiTypography-root {
+  margin: 0;
+  color: #ff4a4a;
+  font-weight: 700;
+}
 .quest-image-step img {
   display: block;
   width: 100%;
@@ -1056,6 +1131,9 @@ footer a {
   .quest-sidebar nav .MuiButton-root {
     flex: 0 0 min(260px, 82vw);
   }
+  .quest-sidebar-section + .quest-sidebar-section {
+    margin-top: 18px;
+  }
   .quest-detail-heading h1 {
     font-size: 30px;
   }
@@ -1074,6 +1152,12 @@ footer a {
   }
   .quest-location-info h2 {
     font-size: 14px;
+  }
+  .quest-guide-probabilities {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .quest-guide-details {
+    padding: 11px;
   }
 }
 @media (max-width: 800px) {

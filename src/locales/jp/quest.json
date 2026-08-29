@@ -1,6 +1,7 @@
 {
   "title": "クエスト攻略",
   "contents": "クエスト一覧",
+  "guideContents": "ガイド一覧",
   "description": "デジモンストーリー タイムストレンジャーのクエスト攻略と重要な場所を確認できます。",
   "back": "進化プランナーに戻る",
   "backToList": "クエスト一覧に戻る",
@@ -12,7 +13,9 @@
   "location": "場所情報",
   "source": "攻略画像の出典を見る",
   "imageAlt": "{{title}} 攻略画像 {{number}}",
-  "categories": { "SOUL": "ソウル収集" },
+  "categories": { "SOUL": "ソウル収集", "GUIDE": "一般攻略" },
+  "guideTypes": { "quest": "QUEST GUIDE", "guide": "GENERAL GUIDE" },
+  "guideDetails": { "before": "回帰前", "after": "回帰後", "normalChest": "宝箱", "afterChest": "回帰後の宝箱", "chestRoute": "宝箱ルート", "shortestRoute": "最短ルート" },
   "scrollControls": "ページ移動",
   "scrollTop": "ページ上部へ移動",
   "scrollBottom": "ページ下部へ移動",
