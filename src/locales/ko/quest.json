@@ -1,0 +1,27 @@
+{
+  "title": "퀘스트 정보",
+  "contents": "퀘스트 목록",
+  "guideContents": "가이드 목록",
+  "description": "디지몬 타임 스트레인저의 퀘스트 공략과 주요 위치를 확인할 수 있습니다.",
+  "back": "진화 플래너로 돌아가기",
+  "backToList": "퀘스트 목록으로 돌아가기",
+  "loading": "퀘스트 정보를 불러오고 있습니다.",
+  "loadError": "퀘스트 정보를 불러오지 못했습니다.",
+  "empty": "등록된 퀘스트 정보가 없습니다.",
+  "imageCount": "공략 이미지 {{count}}장",
+  "step": "진행 위치",
+  "location": "위치 정보",
+  "source": "공략 이미지 원문 보기",
+  "imageAlt": "{{title}} 공략 이미지 {{number}}",
+  "categories": { "SOUL": "소울 수집", "GUIDE": "일반 공략" },
+  "guideTypes": { "quest": "QUEST GUIDE", "guide": "GENERAL GUIDE" },
+  "guideDetails": { "before": "회귀 전", "after": "회귀 후", "normalChest": "상자", "afterChest": "회귀 후 상자", "chestRoute": "상자 루트", "shortestRoute": "최단 루트" },
+  "scrollControls": "페이지 이동",
+  "scrollTop": "맨 위로 이동",
+  "scrollBottom": "맨 아래로 이동",
+  "seo": {
+    "title": "디지몬 타임 스트레인저 퀘스트 공략 | DIGIVOLUTION",
+    "detailTitle": "디지몬 타임 스트레인저 퀘스트 정보 | DIGIVOLUTION",
+    "description": "디지몬 스토리 타임 스트레인저의 퀘스트 공략과 소울 위치를 이미지로 확인하세요."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Quest Guides",
+  "contents": "QUEST LIST",
+  "guideContents": "GUIDE LIST",
+  "description": "Find walkthroughs and key locations for Digimon Story: Time Stranger quests.",
+  "back": "Back to Evolution Planner",
+  "backToList": "Back to Quest Guides",
+  "loading": "Loading quest information.",
+  "loadError": "Failed to load quest information.",
+  "empty": "No quest guides have been published yet.",
+  "imageCount": "{{count}} guide images",
+  "step": "Location",
+  "location": "LOCATION",
+  "imageAlt": "{{title}} guide image {{number}}",
+  "source": "Read the English guide source",
+  "categories": { "SOUL": "Soul Collection", "GUIDE": "General Guide" },
+  "guideTypes": { "quest": "QUEST GUIDE", "guide": "GENERAL GUIDE" },
+  "guideDetails": { "before": "Before Regression", "after": "After Regression", "normalChest": "Chest", "afterChest": "Post-Regression Chest", "chestRoute": "Chest Route", "shortestRoute": "Shortest Route" },
+  "scrollControls": "Page navigation",
+  "scrollTop": "Go to top",
+  "scrollBottom": "Go to bottom",
+  "seo": {
+    "title": "Digimon Time Stranger Quest Guides | DIGIVOLUTION",
+    "detailTitle": "Digimon Time Stranger Quest Guide | DIGIVOLUTION",
+    "description": "Browse illustrated quest walkthroughs and Soul locations for Digimon Story: Time Stranger."
+  }
+}
