@@ -3,11 +3,23 @@
     "planner": "진화 플래너",
     "dex": "디지몬 도감",
     "quests": "퀘스트 정보",
+    "updates": "릴리즈 노트",
     "guide": "요청게시판",
     "language": "언어 선택",
     "navigator": "NAVIGATION",
     "search": "디지몬 검색",
     "route": "진화 경로"
+  },
+  "patchNotes": {
+    "title": "릴리즈 노트",
+    "description": "DIGIVOLUTION의 버전별 기능 추가와 개선 내역을 확인하세요.",
+    "back": "진화 플래너로 돌아가기",
+    "latest": "LATEST",
+    "latestTitle": "릴리즈 노트가 추가되었습니다",
+    "readMore": "릴리즈 노트 보기",
+    "sections": { "added": "추가", "improved": "개선", "fixed": "수정", "mainFeatures": "주요 기능", "uiImprovements": "UI 개선", "imageSources": "이미지 출처", "notes": "참고 사항" },
+    "seoTitle": "DIGIVOLUTION 릴리즈 노트",
+    "seoDescription": "DIGIVOLUTION의 새로운 기능과 개선 및 수정 내역을 확인하세요."
   },
   "board": {
     "back": "진화 플래너로 돌아가기",

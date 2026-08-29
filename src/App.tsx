@@ -21,6 +21,7 @@ function App() {
   const isHome = location.pathname === '/'
   const isQuestBoard = location.pathname.startsWith('/quests')
   const isRequestBoard = location.pathname === '/requests'
+  const isPatchNotes = location.pathname === '/patch-notes'
   const [language, setLanguage] = useState<Language>(() => localeToLanguage(i18n.language))
 
   useEffect(() => {
@@ -53,7 +54,7 @@ function App() {
   const scrollTo = (id: 'planner' | 'dex') => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   const outletContext: AppOutletContext = { language }
   const isDetail = location.pathname.startsWith('/digimons/')
-  const ownsMetadata = isDetail || isQuestBoard
+  const ownsMetadata = isDetail || isQuestBoard || isPatchNotes
   const noIndex = location.pathname.startsWith('/admin') || location.pathname === '/requests' || location.pathname === '/privacy'
   const metadataTitle = isHome ? t('seo.homeTitle') : t('seo.privateTitle')
   const metadataDescription = isHome ? t('seo.homeDescription') : t('seo.privateDescription')
@@ -67,6 +68,7 @@ function App() {
           <Link className={isHome ? 'active' : undefined} href="/#planner" underline="none">{t('nav.planner')}</Link>
           <Link href={referenceUrlByLanguage[language]} target="_blank" rel="noreferrer" underline="none" onClick={(event) => event.currentTarget.blur()}>{t('nav.dex')}</Link>
           <Link component={RouterLink} className={isQuestBoard ? 'active' : undefined} to="/quests" underline="none">{t('nav.quests')}</Link>
+          <Link component={RouterLink} className={isPatchNotes ? 'active' : undefined} to="/patch-notes" underline="none">{t('nav.updates')}</Link>
           <Link component={RouterLink} className={isRequestBoard ? 'active' : undefined} to="/requests" underline="none">{t('nav.guide')}</Link>
         </Stack>
         <Box className="language-switcher" role="group" aria-label={t('nav.language')}>{(['KR', 'EN', 'JP'] as const).map((item) => <Button key={item} className={`language-button ${language === item ? 'active' : ''}`} onClick={() => selectLanguage(item)} aria-pressed={language === item}>{item}</Button>)}</Box>

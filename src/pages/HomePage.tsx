@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react'
 import { useQueries } from '@tanstack/react-query'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
-import { useNavigate, useOutletContext } from 'react-router-dom'
+import { Link as RouterLink, useNavigate, useOutletContext } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { getDigimonCounts, getEvolutionCount } from '../api/digimon'
 import { EvolutionRouteSection } from '../components/EvolutionRouteSection'
@@ -58,6 +58,13 @@ export function HomePage() {
       <Grid size={{ xs: 12, md: 7 }} className="hero-copy"><Typography component="p" className="eyebrow">DIGIVOLUTION NAVIGATOR / 01</Typography><Typography component="h1">{t('hero.title1')}<br />{t('hero.title2')}<br /><Typography component="em">{t('hero.title3')}</Typography>{t('hero.title4')}</Typography><Typography component="p">{t('hero.description')}</Typography></Grid>
       <Grid size={{ xs: 12, md: 5 }} className="digital-core"><Box component="span" className="orbit one" aria-hidden="true" /><Box component="span" className="orbit two" aria-hidden="true" /><Box component="img" className="hero-digivice" src="/hero-digivice.png" alt="" aria-hidden="true" draggable={false} onClick={openAdminLogin} /></Grid>
     </Grid>
+
+    <Box component={RouterLink} to="/patch-notes" className="latest-update-banner">
+      <Box component="span">NEW</Box>
+      <Typography component="strong">v1.3.002</Typography>
+      <Typography component="p">{t('patchNotes.latestTitle')}</Typography>
+      <Button component="span">{t('patchNotes.readMore')} &rarr;</Button>
+    </Box>
 
     <SideRailAds />
     <SearchSection selectedDigimon={selected} onSelect={selectDigimon} />

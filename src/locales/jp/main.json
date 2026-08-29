@@ -3,11 +3,23 @@
     "planner": "進化プランナー",
     "dex": "デジモン図鑑",
     "quests": "クエスト攻略",
+    "updates": "リリースノート",
     "guide": "リクエスト掲示板",
     "language": "言語を選択",
     "navigator": "ナビゲーション",
     "search": "デジモン検索",
     "route": "進化ルート"
+  },
+  "patchNotes": {
+    "title": "リリースノート",
+    "description": "DIGIVOLUTIONの各バージョンの機能追加・改善内容を確認できます。",
+    "back": "進化プランナーに戻る",
+    "latest": "LATEST",
+    "latestTitle": "リリースノートを追加しました",
+    "readMore": "リリースノートを見る",
+    "sections": { "added": "追加", "improved": "改善", "fixed": "修正", "mainFeatures": "主な機能", "uiImprovements": "UI改善", "imageSources": "画像出典", "notes": "注意事項" },
+    "seoTitle": "DIGIVOLUTION リリースノート",
+    "seoDescription": "DIGIVOLUTIONの新機能、改善、修正内容を確認できます。"
   },
   "board": {
     "back": "進化プランナーに戻る",

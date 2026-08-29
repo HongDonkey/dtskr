@@ -3,11 +3,23 @@
     "planner": "Evolution Planner",
     "dex": "Digimon Encyclopedia",
     "quests": "Quest Guides",
+    "updates": "Release Notes",
     "guide": "Request Board",
     "language": "Select language",
     "navigator": "NAVIGATOR",
     "search": "Digimon Search",
     "route": "Evolution Route"
+  },
+  "patchNotes": {
+    "title": "Release Notes",
+    "description": "Review features and improvements from each DIGIVOLUTION release.",
+    "back": "Back to Evolution Planner",
+    "latest": "LATEST",
+    "latestTitle": "Release notes are now available",
+    "readMore": "View release notes",
+    "sections": { "added": "Added", "improved": "Improved", "fixed": "Fixed", "mainFeatures": "Main Features", "uiImprovements": "UI Improvements", "imageSources": "Image Sources", "notes": "Notes" },
+    "seoTitle": "DIGIVOLUTION Release Notes",
+    "seoDescription": "Read about new features, improvements, and fixes on DIGIVOLUTION."
   },
   "board": {
     "back": "Back to Evolution Planner",
