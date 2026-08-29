@@ -958,6 +958,17 @@ footer a {
   background: rgba(15, 57, 96, 0.72);
   font-size: 13px;
 }
+.quest-source-link {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 18px;
+  color: #42d9ff !important;
+  font-size: 13px;
+  font-weight: 800;
+}
+.quest-source-link:hover {
+  color: #c9ec62 !important;
+}
 .quest-image-sequence {
   display: grid;
   gap: 34px;

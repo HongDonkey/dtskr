@@ -11,6 +11,7 @@
   "step": "Location",
   "location": "LOCATION",
   "imageAlt": "{{title}} guide image {{number}}",
+  "source": "Read the English guide source",
   "categories": { "SOUL": "Soul Collection" },
   "scrollControls": "Page navigation",
   "scrollTop": "Go to top",

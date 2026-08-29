@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, Link, Typography } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { Link as RouterLink, useOutletContext, useParams } from 'react-router-dom'
@@ -71,6 +71,11 @@ export function QuestBoardPage() {
                   <Typography component="h1">{quest.title}</Typography>
                   <Typography component="p">{quest.summary}</Typography>
                   {quest.content && <Typography component="p" className="quest-detail-content">{quest.content}</Typography>}
+                  {quest.sourceUrl && (
+                    <Link className="quest-source-link" href={quest.sourceUrl} target="_blank" rel="noreferrer" underline="none">
+                      {t('source')} <Box component="span" aria-hidden="true">↗</Box>
+                    </Link>
+                  )}
                 </Box>
                 <Box className="quest-image-sequence">
                   {quest.images.map((image) => (

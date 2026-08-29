@@ -12,6 +12,7 @@ export type QuestSummary = {
 
 export type QuestDetail = Omit<QuestSummary, 'thumbnailUrl' | 'imageCount'> & {
   content: string | null
+  sourceUrl: string | null
   images: Array<{
     sortOrder: number
     imageUrl: string
