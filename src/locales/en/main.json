@@ -15,7 +15,7 @@
     "description": "Review features and improvements from each DIGIVOLUTION release.",
     "back": "Back to Evolution Planner",
     "latest": "LATEST",
-    "latestTitle": "Responsive layouts have been improved",
+    "latestTitle": "Site information and user guide added",
     "readMore": "View release notes",
     "sections": { "added": "Added", "improved": "Improved", "fixed": "Fixed", "mainFeatures": "Main Features", "uiImprovements": "UI Improvements", "imageSources": "Image Sources", "notes": "Notes" },
     "seoTitle": "DIGIVOLUTION Release Notes",
@@ -136,6 +136,32 @@
     "security": "Post passwords are stored using one-way hashing. Administrator access control, attachment validation, and submission rate limits are applied.",
     "contactTitle": "8. Privacy Requests",
     "contact": "Submit access, correction, or deletion requests using the Other category on the request board. Requests are handled after identity verification."
+  },
+  "serviceGuide": {
+    "title": "How to explore Digivolution routes",
+    "description": "DIGIVOLUTION is a fan-made tool that organizes the complex evolution relationships in Digimon Story Time Stranger. Search for a Digimon, then review its preceding and following routes and their requirements on a single screen.",
+    "cards": {
+      "search": { "title": "Search by name and stage", "body": "Search directly by Digimon name or narrow the list by growth stage, from In-Training to Ultra. Combine the stage selector with the attribute filter to find suitable candidates more quickly." },
+      "route": { "title": "Compare previous and next evolutions", "body": "Routes are separated into previous and next evolutions around the selected Digimon. Compare the requirements on each card and expand or collapse branches while following the route you want to raise." },
+      "detail": { "title": "Review skills and personalities", "body": "Detail pages show growth stage, type, attribute, special skills, and attachment skills. Personality information in the evolution tree can also help you plan the required stats and training direction." }
+    },
+    "note": "Game updates and translations may cause differences from the current in-game display. If you find an incorrect requirement or missing entry, report it through the request board so the data and explanation can be reviewed."
+  },
+  "about": {
+    "footerLink": "About",
+    "back": "Back to Evolution Planner",
+    "title": "About DIGIVOLUTION",
+    "description": "An independent fan site created to make Digimon Story Time Stranger evolution data and guides easier to explore.",
+    "seoTitle": "About DIGIVOLUTION and Our Content Principles",
+    "seoDescription": "Learn why DIGIVOLUTION exists, how information is prepared, our content and image principles, and how to report an issue.",
+    "sections": {
+      "purpose": { "title": "Purpose", "body": "We organize evolution requirements and relationships that otherwise require moving between several in-game screens. Our goal is to help players understand and choose practical training routes rather than present another basic list." },
+      "features": { "title": "What We Provide", "body": "The site provides name, stage, and attribute search; previous and next evolution trees; requirements and detailed Digimon information; personality effects; and quest and location guides. We continue improving access across screen sizes and languages." },
+      "information": { "title": "Reviewing and Correcting Information", "body": "Evolution requirements and Digimon information are organized from details that can be checked in the game. Updates and user reports help correct errors and omissions. Information that cannot be confirmed is not presented as certain." },
+      "contentPolicy": { "title": "Content and Image Principles", "body": "Explanations and instructions are written to help visitors understand the information. When external references or images are used, we check their source and usage terms, and review, revise, or remove material when requested by a rights holder." },
+      "copyright": { "title": "Fan Site Notice", "body": "DIGIVOLUTION is an unofficial fan-made site and is not affiliated with or officially operated by Bandai Namco Entertainment or the Digimon rights holders. Game names, characters, and related trademarks belong to their respective owners." },
+      "contact": { "title": "Corrections and Contact", "body": "Use the request board to report incorrect evolution requirements, translation errors, missing information, or image-rights concerns. Supporting details or screenshots help us review the report accurately.", "link": "Open the request board" }
+    }
   },
   "hero": {
     "title1": "Digimon Time Stranger",
