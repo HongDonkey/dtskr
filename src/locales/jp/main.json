@@ -15,7 +15,7 @@
     "description": "DIGIVOLUTIONの各バージョンの機能追加・改善内容を確認できます。",
     "back": "進化プランナーに戻る",
     "latest": "LATEST",
-    "latestTitle": "リリースノートを追加しました",
+    "latestTitle": "レスポンシブ画面を改善しました",
     "readMore": "リリースノートを見る",
     "sections": { "added": "追加", "improved": "改善", "fixed": "修正", "mainFeatures": "主な機能", "uiImprovements": "UI改善", "imageSources": "画像出典", "notes": "注意事項" },
     "seoTitle": "DIGIVOLUTION リリースノート",

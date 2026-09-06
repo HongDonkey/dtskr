@@ -19,6 +19,7 @@ const changes = (type: 'added' | 'improved' | 'fixed', ko: string[], en: string[
 })
 
 export const patchNotes: ReleaseNote[] = [
+  { version: 'v1.3.003', content: changes('fixed', ['반응형 화면 수정(태블릿 사이즈)', 'Galaxy Z Fold5, iPad Mini, iPad Air 등 기기별 화면 폭에서 헤더 메뉴, 배경 이미지, 검색 영역 및 내비게이션 레이아웃을 조정했습니다.'], ['Responsive Layout Fixes (Tablet Sizes)', 'Adjusted the header menu, background image, search area, and navigation layout for device widths including Galaxy Z Fold5, iPad Mini, and iPad Air.'], ['レスポンシブ画面修正（タブレットサイズ）', 'Galaxy Z Fold5、iPad Mini、iPad Airなどの端末幅に合わせて、ヘッダーメニュー、背景画像、検索エリア、ナビゲーションのレイアウトを調整しました。']) },
   { version: 'v1.3.002', content: changes('added', ['릴리즈 노트 추가', '릴리즈 노트 추가'], ['Release Notes Added', 'Added release notes'], ['リリースノート追加', 'リリースノートを追加']) },
   { version: 'v1.3.001', content: changes('added', ['퀘스트 정보 게시판 추가', '퀘스트 정보 게시판 추가'], ['Quest Guide Board Added', 'Added the quest guide board'], ['クエスト情報掲示板追加', 'クエスト情報掲示板を追加']) },
   { version: 'v1.2.004', content: changes('fixed', ['모바일 진화 섹션 수정', '모바일 진화 섹션 라인 픽셀 사이즈 수정'], ['Mobile Evolution Section Fix', 'Adjusted evolution tree line pixels on mobile'], ['モバイル進化セクション修正', 'モバイル進化セクションの接続線ピクセルサイズを修正']) },
