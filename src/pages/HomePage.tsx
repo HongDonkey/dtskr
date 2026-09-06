@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { useQueries } from '@tanstack/react-query'
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import { Link as RouterLink, useNavigate, useOutletContext } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -63,7 +63,6 @@ export function HomePage() {
       <Box component="span">NEW</Box>
       <Typography component="strong">v1.3.002</Typography>
       <Typography component="p">{t('patchNotes.latestTitle')}</Typography>
-      <Button component="span">{t('patchNotes.readMore')} &rarr;</Button>
     </Box>
 
     <SideRailAds />
