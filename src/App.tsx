@@ -22,6 +22,7 @@ function App() {
   const isQuestBoard = location.pathname.startsWith('/quests')
   const isRequestBoard = location.pathname === '/requests'
   const isPatchNotes = location.pathname === '/patch-notes'
+  const isAbout = location.pathname === '/about'
   const [language, setLanguage] = useState<Language>(() => localeToLanguage(i18n.language))
 
   useEffect(() => {
@@ -54,7 +55,7 @@ function App() {
   const scrollTo = (id: 'planner' | 'dex') => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   const outletContext: AppOutletContext = { language }
   const isDetail = location.pathname.startsWith('/digimons/')
-  const ownsMetadata = isDetail || isQuestBoard || isPatchNotes
+  const ownsMetadata = isDetail || isQuestBoard || isPatchNotes || isAbout
   const noIndex = location.pathname.startsWith('/admin') || location.pathname === '/requests' || location.pathname === '/privacy'
   const metadataTitle = isHome ? t('seo.homeTitle') : t('seo.privateTitle')
   const metadataDescription = isHome ? t('seo.homeDescription') : t('seo.privateDescription')
@@ -77,7 +78,7 @@ function App() {
       {isHome && <Box component="nav" className="section-nav" aria-label={t('nav.navigator')}><Typography component="p" className="section-nav-title" style={{ textAlign: 'center' }}>{t('nav.navigator')}</Typography><Button onClick={() => scrollTo('planner')}><Box component="span">01</Box>{t('nav.search')}</Button><Button onClick={() => scrollTo('dex')}><Box component="span">02</Box>{t('nav.route')}</Button></Box>}
 
       <Outlet context={outletContext} />
-      <Box component="footer">© 2026 DIGIVICE LAB <Box component="span">FAN MADE EVOLUTION PLANNER</Box><Link component={RouterLink} to="/privacy" underline="hover">{t('privacy.footerLink')}</Link></Box>
+      <Box component="footer">© 2026 DIGIVICE LAB <Box component="span">FAN MADE EVOLUTION PLANNER</Box><Link component={RouterLink} to="/about" underline="hover">{t('about.footerLink')}</Link><Link component={RouterLink} to="/privacy" underline="hover">{t('privacy.footerLink')}</Link></Box>
     </Box>
   )
 }

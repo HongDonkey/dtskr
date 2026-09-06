@@ -8,7 +8,7 @@ import './index.css'
 import './styles/request-board-components.css'
 import './i18n'
 import App from './App'
-import { AdminLoginPage, AdminRequestBoardPage, DigimonDetailPage, HomePage, PatchNotesPage, PrivacyPolicyPage, QuestBoardPage, RequestBoardPage } from './routes'
+import { AboutPage, AdminLoginPage, AdminRequestBoardPage, DigimonDetailPage, HomePage, PatchNotesPage, PrivacyPolicyPage, QuestBoardPage, RequestBoardPage } from './routes'
 
 const queryClient = new QueryClient()
 
@@ -28,6 +28,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="admin/login" element={<AdminLoginPage />} />
             <Route path="admin/requests" element={<AdminRequestBoardPage />} />
             <Route path="privacy" element={<PrivacyPolicyPage />} />
+            <Route path="about" element={<AboutPage />} />
           </Route>
         </Routes>
         </Suspense>

@@ -61,13 +61,31 @@ export function HomePage() {
 
     <Box component={RouterLink} to="/patch-notes" className="latest-update-banner">
       <Box component="span">NEW</Box>
-      <Typography component="strong">v1.3.003</Typography>
+      <Typography component="strong">v1.3.004</Typography>
       <Typography component="p">{t('patchNotes.latestTitle')}</Typography>
     </Box>
 
     <SideRailAds />
     <SearchSection selectedDigimon={selected} onSelect={selectDigimon} />
     <EvolutionRouteSection digimon={selected} />
+
+    <Box component="section" className="service-guide" aria-labelledby="service-guide-title">
+      <Box className="service-guide-heading">
+        <Typography component="p">DIGIVOLUTION / GUIDE</Typography>
+        <Typography component="h2" id="service-guide-title">{t('serviceGuide.title')}</Typography>
+        <Typography component="p">{t('serviceGuide.description')}</Typography>
+      </Box>
+      <Box className="service-guide-cards">
+        {(['search', 'route', 'detail'] as const).map((key, index) => (
+          <Box component="article" className="service-guide-card" key={key}>
+            <Typography component="span">{String(index + 1).padStart(2, '0')}</Typography>
+            <Typography component="h3">{t(`serviceGuide.cards.${key}.title`)}</Typography>
+            <Typography component="p">{t(`serviceGuide.cards.${key}.body`)}</Typography>
+          </Box>
+        ))}
+      </Box>
+      <Typography component="p" className="service-guide-note">{t('serviceGuide.note')}</Typography>
+    </Box>
 
     <Grid container component="section" className="stats" id="guide" sx={{ alignItems: 'center' }}>
       <Grid size={{ xs: 4, md: 3 }}><Typography component="span">DATA</Typography><Typography component="b">{counts[catalogAllLabel(i18n.language)] ?? '-'}</Typography><Typography component="small">{t('stats.registered')}</Typography></Grid>

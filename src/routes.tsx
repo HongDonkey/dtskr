@@ -8,3 +8,4 @@ export const PatchNotesPage = lazy(() => import('./pages/PatchNotesPage').then((
 export const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage').then((module) => ({ default: module.AdminLoginPage })))
 export const AdminRequestBoardPage = lazy(() => import('./pages/AdminRequestBoardPage').then((module) => ({ default: module.AdminRequestBoardPage })))
 export const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage').then((module) => ({ default: module.PrivacyPolicyPage })))
+export const AboutPage = lazy(() => import('./pages/AboutPage').then((module) => ({ default: module.AboutPage })))
