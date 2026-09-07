@@ -61,7 +61,7 @@ export function HomePage() {
 
     <Box component={RouterLink} to="/patch-notes" className="latest-update-banner">
       <Box component="span">NEW</Box>
-      <Typography component="strong">v1.3.004</Typography>
+      <Typography component="strong">v1.3.005</Typography>
       <Typography component="p">{t('patchNotes.latestTitle')}</Typography>
     </Box>
 
