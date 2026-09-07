@@ -8,9 +8,38 @@ import '../App.css'
 import { PageMetadata } from '../components/PageMetadata'
 import { localeToLanguage } from '../utils/language'
 
+const justimonTrinityArmVariants = {
+  ko: [
+    { label: '크리티컬 암', details: '무/물리/단일/위력:100', effect: '인자 무장에 주는 대미지 증가 · CRT 확률 20%' },
+    { label: '블리츠 암', details: '전기/물리/단일/위력:105', effect: '인자 양서류에 주는 대미지 증가' },
+    { label: '엑셀 암', details: '강철/물리/단일/위력:110', effect: '인자 광석에 주는 대미지 증가 · 상성 불리 무효' },
+  ],
+  en: [
+    { label: 'Critical Arm', details: 'Null/Physical/Single/Pwr.:100', effect: 'Increased damage to Weapon Trait · 20% CRT Rate' },
+    { label: 'Blitz Arm', details: 'Electric/Physical/Single/Pwr.:105', effect: 'Increased damage to Amphibian Trait' },
+    { label: 'Accel Arm', details: 'Steel/Physical/Single/Pwr.:110', effect: 'Increased damage to Mineral Trait · Nullifies unfavorable compatibility' },
+  ],
+  jp: [
+    { label: 'クリティカルアーム', details: '無/物理/単体/威力:100', effect: '武装因子へのダメージ増加・CRT率20%' },
+    { label: 'ブリッツアーム', details: '電気/物理/単体/威力:105', effect: '両生類因子へのダメージ増加' },
+    { label: 'アクセルアーム', details: '鋼鉄/物理/単体/威力:110', effect: '鉱石因子へのダメージ増加・相性不利無効' },
+  ],
+} as const
+
+function getSkillImageVariants(digimonId: number, skillIndex: number, imageUrl: string | null, language: string) {
+  if (!imageUrl) return []
+  if (digimonId !== 737 || skillIndex !== 1) return [{ imageUrl, label: null }]
+
+  const variants = justimonTrinityArmVariants[language.startsWith('en') ? 'en' : language.startsWith('jp') ? 'jp' : 'ko']
+  return variants.map((variant, index) => ({
+    ...variant,
+    imageUrl: imageUrl.replace(/_2(?=\.[^.]+$)/, `_${index + 2}`),
+  }))
+}
+
 export function DigimonDetailPage() {
   const { t, i18n } = useTranslation('main')
-  const [isSkillImageOpen, setIsSkillImageOpen] = useState(false)
+  const [openSkillImages, setOpenSkillImages] = useState<Record<string, boolean>>({})
   const navigate = useNavigate()
   const digimonId = Number(useParams().id)
   const { data, isLoading, isError } = useQuery({ queryKey: ['digimon-detail', i18n.language, digimonId], queryFn: () => getDigimonDetail(digimonId), enabled: Number.isInteger(digimonId) && digimonId > 0 })
@@ -53,7 +82,7 @@ export function DigimonDetailPage() {
         <Box component="dl" className="detail-facts">{[[t('detail.name'), data.name], [t('detail.stage'), data.stage], [t('detail.attribute'), data.attribute], [t('detail.type'), data.digimonType], [t('detail.personality'), data.personality]].map(([label, value]) => <Box key={label} className="detail-fact-row"><Typography component="dt">{label}</Typography><Typography component="dd">{value || '-'}</Typography></Box>)}</Box>
       </Box>
       <Box className="detail-content"><Typography component="p" className="detail-eyebrow">DIGIMON PROFILE</Typography>
-        <Box className="detail-skills-section"><Typography component="h2">{t('detail.specialSkills')}</Typography><Box className="detail-skill-list">{data.specialSkills.map((skill, index) => <Box className="detail-skill-item" key={`${skill.name}-${index}`}><Typography component="strong">{skill.name}</Typography>{skill.details && <Typography component="small">{skill.details}</Typography>}{skill.effect && <Typography component="p">{skill.effect}</Typography>}</Box>)}</Box>{data.skillImageUrl && <><Button className="detail-skill-toggle" onClick={() => setIsSkillImageOpen((open) => !open)} aria-expanded={isSkillImageOpen}>{isSkillImageOpen ? '−' : '+'} {t(isSkillImageOpen ? 'detail.hideSkillImage' : 'detail.showSkillImage')}</Button>{isSkillImageOpen && <Box component="img" className="detail-skill-image" src={data.skillImageUrl} alt={t('detail.skillImageAlt', { name: data.name })} />}</>}</Box>
+        <Box className="detail-skills-section"><Typography component="h2">{t('detail.specialSkills')}</Typography><Box className="detail-skill-list">{data.specialSkills.map((skill, index) => { const skillImageUrl = skill.imageUrl ?? (index === 0 ? data.skillImageUrl : null); const isJustimonTrinityArm = data.id === 737 && index === 1; const imageVariants = getSkillImageVariants(data.id, index, skillImageUrl, i18n.language); return <Box className={`detail-skill-entry${isJustimonTrinityArm ? ' detail-skill-entry--variants' : ''}`} key={`${skill.name}-${index}`}><Box className="detail-skill-item"><Typography component="strong">{skill.name}</Typography>{skill.details && <Typography component="small">{skill.details}</Typography>}{skill.effect && !isJustimonTrinityArm && <Typography component="p">{skill.effect}</Typography>}</Box>{imageVariants.map((variant, variantIndex) => { const imageKey = `${index}-${variantIndex}`; const isSkillImageOpen = Boolean(openSkillImages[imageKey]); const imageName = variant.label ?? skill.name; return <Box className="detail-skill-variant" key={imageKey}>{variant.label && <Box className="detail-skill-item detail-skill-variant-info"><Typography component="strong">{variant.label}</Typography><Typography component="small">{variant.details}</Typography><Typography component="p">{variant.effect}</Typography></Box>}<Button className="detail-skill-toggle" onClick={() => setOpenSkillImages((openImages) => ({ ...openImages, [imageKey]: !openImages[imageKey] }))} aria-expanded={isSkillImageOpen}>{isSkillImageOpen ? '−' : '+'} {t(isSkillImageOpen ? 'detail.hideSkillImage' : 'detail.showSkillImage')}</Button>{isSkillImageOpen && <Box component="img" className="detail-skill-image" src={variant.imageUrl} alt={t('detail.skillImageAlt', { name: `${data.name} ${imageName}` })} />}</Box> })}</Box> })}</Box></Box>
         <Box className="detail-skills-section"><Typography component="h2">{t('detail.attachmentSkills')}</Typography><Box className="detail-attachment-list">{data.attachmentSkills.length ? data.attachmentSkills.map((skill, index) => <Box className="detail-attachment-item" key={`${skill.name}-${index}`}><Typography component="small">{skill.requiredLevel == null ? 'LEVEL -' : `LV ${skill.requiredLevel}`}</Typography><Typography component="span">{skill.name}</Typography></Box>) : <Typography component="p" className="detail-skill-empty">{t('detail.noAttachmentSkills')}</Typography>}</Box></Box>
         <Box className="detail-section detail-condition"><Typography component="small">EVOLUTION REQUIREMENTS</Typography><Typography component="h2">{t('detail.condition')}</Typography>{evolutionConditions.length ? <Box component="ul" className="detail-condition-list">{evolutionConditions.map((condition, index) => <Typography component="li" key={`${condition}-${index}`}>{condition}</Typography>)}</Box> : <Typography component="p">{t('detail.noCondition')}</Typography>}</Box>
         {data.sourceUrl && <Link className="detail-source" href={data.sourceUrl} target="_blank" rel="noreferrer" underline="none">{t('detail.officialDex')} <Box component="span" aria-hidden="true">↗</Box></Link>}

@@ -15,6 +15,6 @@ export type DigimonDetail = DigimonSummary & {
   description: string | null
   evolutionCondition: string | null
   sourceUrl: string | null
-  specialSkills: Array<{ name: string; details: string | null; effect: string | null }>
+  specialSkills: Array<{ name: string; details: string | null; effect: string | null; imageUrl: string | null }>
   attachmentSkills: Array<{ requiredLevel: number | null; name: string }>
 }

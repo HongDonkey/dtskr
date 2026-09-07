@@ -3374,6 +3374,45 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
   display: grid;
   gap: 8px;
 }
+.detail-skill-entry {
+  display: grid;
+  gap: 10px;
+}
+.detail-skill-variant {
+  display: grid;
+  gap: 8px;
+}
+.detail-skill-variant-info {
+  border-left-color: #c9ec62;
+}
+.detail-skill-entry--variants {
+  gap: 0;
+}
+.detail-skill-entry--variants > .detail-skill-item:first-child {
+  position: relative;
+  z-index: 1;
+  border-left: 3px solid #c9ec62;
+}
+.detail-skill-entry--variants .detail-skill-variant {
+  position: relative;
+  margin-left: 18px;
+  padding: 12px 0 4px 16px;
+  border-left: 1px solid rgba(201, 236, 98, 0.55);
+}
+.detail-skill-entry--variants .detail-skill-variant::before {
+  content: '';
+  position: absolute;
+  top: 34px;
+  left: 0;
+  width: 12px;
+  border-top: 1px solid rgba(201, 236, 98, 0.55);
+}
+.detail-skill-entry--variants .detail-skill-variant-info {
+  background: rgba(7, 35, 67, 0.92);
+}
+.detail-skill-entry--variants .detail-skill-variant-info strong {
+  font-size: 14px;
+}
 .detail-skill-item,
 .detail-attachment-item {
   padding: 12px 14px;
@@ -3399,7 +3438,7 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
 }
 .detail-skill-toggle.MuiButton-root {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 0;
   border: 1px solid #3a91bd;
   border-radius: 0;
   color: #c9ec62;
@@ -3408,7 +3447,6 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
 .detail-skill-image {
   display: block;
   width: 100%;
-  margin-top: 10px;
   border: 1px solid #2a82ad;
 }
 .detail-attachment-item {
