@@ -1516,6 +1516,10 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
   align-items: center;
   flex: 0 0 auto;
   gap: 1px;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 .tree-personality-badge {
   display: inline-flex;
@@ -1551,7 +1555,9 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
   height: 14px;
   object-fit: contain;
 }
-.tree-personality-info.MuiIconButton-root {
+.tree-personality-info {
+  display: inline-grid;
+  place-items: center;
   width: 14px;
   height: 14px;
   padding: 0;
@@ -1560,10 +1566,9 @@ html:lang(ja) .tree-focus .tree-meta-row > p {
   line-height: 1;
   transform: translateY(-0.5px);
 }
-.tree-personality-info.MuiIconButton-root:hover,
-.tree-personality-info.MuiIconButton-root:focus-visible {
+.tree-personality-control:hover .tree-personality-info,
+.tree-personality-control:focus-visible .tree-personality-info {
   color: #eef7ff;
-  background: transparent;
   opacity: 0.75;
 }
 .personality-tooltip.MuiTooltip-tooltip {
