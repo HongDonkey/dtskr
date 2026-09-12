@@ -15,7 +15,7 @@
     "description": "DIGIVOLUTION의 버전별 기능 추가와 개선 내역을 확인하세요.",
     "back": "진화 플래너로 돌아가기",
     "latest": "LATEST",
-    "latestTitle": "스페셜 스킬 이미지 표시 개선",
+    "latestTitle": "모바일 성격 툴팁 조작 개선",
     "readMore": "릴리즈 노트 보기",
     "sections": { "added": "추가", "improved": "개선", "fixed": "수정", "mainFeatures": "주요 기능", "uiImprovements": "UI 개선", "imageSources": "이미지 출처", "notes": "참고 사항" },
     "seoTitle": "DIGIVOLUTION 릴리즈 노트",

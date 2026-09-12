@@ -61,6 +61,7 @@ function personalityGroupOf(personality: string): PersonalityGroup | null {
 
 function PersonalityBadge({ personality }: { personality: string }) {
   const { t } = useTranslation('evolution')
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false)
   const group = personalityGroupOf(personality)
   const detailKey = personalityDetailKeys[personality]
 
@@ -109,43 +110,65 @@ function PersonalityBadge({ personality }: { personality: string }) {
   )
 
   return (
-    <Box component="span" className={`tree-personality-control is-${group}`}>
-      <Typography component="span" className="tree-personality-badge">
-        <Box
-          component="img"
-          className="tree-personality-crest"
-          src={personalityImages[group]}
-          alt=""
-          aria-hidden="true"
-        />
-        {personality}
-      </Typography>
-      <Tooltip
-        title={detail}
-        placement="bottom-start"
-        arrow
-        enterDelay={0}
-        enterNextDelay={0}
-        leaveDelay={50}
-        classes={{
-          tooltip: `personality-tooltip is-${group}`,
-          arrow: 'personality-tooltip-arrow',
+    <Tooltip
+      title={detail}
+      open={isTooltipOpen}
+      placement="bottom-start"
+      arrow
+      disableFocusListener
+      disableHoverListener
+      disableTouchListener
+      classes={{
+        tooltip: `personality-tooltip is-${group}`,
+        arrow: 'personality-tooltip-arrow',
+      }}
+    >
+      <Box
+        component="span"
+        className={`tree-personality-control is-${group}`}
+        role="button"
+        tabIndex={0}
+        aria-label={t('evolution.personality.openLabel', { personality })}
+        aria-expanded={isTooltipOpen}
+        onPointerEnter={(event) => {
+          if (event.pointerType === 'mouse') setIsTooltipOpen(true)
+        }}
+        onPointerLeave={(event) => {
+          if (event.pointerType === 'mouse') setIsTooltipOpen(false)
+        }}
+        onBlur={() => setIsTooltipOpen(false)}
+        onMouseDown={(event) => event.stopPropagation()}
+        onTouchStart={(event) => event.stopPropagation()}
+        onContextMenu={(event) => {
+          event.preventDefault()
+          event.stopPropagation()
+        }}
+        onClick={(event) => {
+          event.preventDefault()
+          event.stopPropagation()
+          if ((event.nativeEvent as PointerEvent).pointerType === 'mouse') return
+          setIsTooltipOpen((open) => !open)
+        }}
+        onKeyDown={(event) => {
+          if (event.key !== 'Enter' && event.key !== ' ') return
+          event.preventDefault()
+          event.stopPropagation()
+          setIsTooltipOpen((open) => !open)
         }}
       >
-        <IconButton
-          className="tree-personality-info"
-          size="small"
-          aria-label={t('evolution.personality.openLabel', { personality })}
-          onMouseDown={(event) => event.stopPropagation()}
-          onClick={(event) => {
-            event.preventDefault()
-            event.stopPropagation()
-          }}
-        >
-          ⓘ
-        </IconButton>
-      </Tooltip>
-    </Box>
+        <Typography component="span" className="tree-personality-badge">
+          <Box
+            component="img"
+            className="tree-personality-crest"
+            src={personalityImages[group]}
+            alt=""
+            aria-hidden="true"
+          />
+          {personality}
+        </Typography>
+        <Box component="span" className="tree-personality-info" aria-hidden="true">ⓘ</Box>
+      </Box>
+    </Tooltip>
   )
 }
 
