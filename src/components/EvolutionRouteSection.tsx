@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Box, Button, IconButton, Tooltip, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
@@ -20,6 +20,36 @@ type PersonalityDetailKey =
   | 'opportunistic' | 'friendly' | 'sociable' | 'compassionate'
   | 'adoring' | 'devoted' | 'tolerant' | 'overprotective'
   | 'enlightened' | 'sly' | 'astute' | 'strategic'
+
+type StoredEvolutionTreeState = {
+  direction: EvolutionDirection
+  expandedByKey: Record<string, string[]>
+}
+
+const evolutionTreeStateKey = 'digivolution:evolution-tree-state'
+
+function readEvolutionTreeState(): StoredEvolutionTreeState {
+  const fallback: StoredEvolutionTreeState = { direction: 'next', expandedByKey: {} }
+  if (typeof window === 'undefined') return fallback
+
+  try {
+    const stored = JSON.parse(window.sessionStorage.getItem(evolutionTreeStateKey) ?? 'null') as Partial<StoredEvolutionTreeState> | null
+    if (!stored) return fallback
+
+    const expandedByKey = Object.fromEntries(
+      Object.entries(stored.expandedByKey ?? {})
+        .filter((entry): entry is [string, string[]] => Array.isArray(entry[1]))
+        .map(([key, ids]) => [key, ids.filter((id): id is string => typeof id === 'string')])
+    )
+
+    return {
+      direction: stored.direction === 'prior' ? 'prior' : 'next',
+      expandedByKey,
+    }
+  } catch {
+    return fallback
+  }
+}
 
 const personalityGroups: Record<PersonalityGroup, string[]> = {
   valor: ['열혈', '용감', '만용', '대담', 'Passionate', 'Zealous', 'Brave', 'Reckless', 'Bold', 'Daring', '熱血', '勇敢', '蛮勇', '豪胆'],
@@ -193,11 +223,8 @@ function toTreeNode(node: EvolutionRouteNode, path = String(node.id)): Evolution
 export function EvolutionRouteSection({ digimon }: { digimon: DigimonSummary | null }) {
   const { t, i18n } = useTranslation('evolution')
   const navigate = useNavigate()
-  const [direction, setDirection] = useState<EvolutionDirection>('next')
-  const [expansionState, setExpansionState] = useState<{ key: string; ids: Set<string> }>({
-    key: '',
-    ids: new Set(),
-  })
+  const [treeState, setTreeState] = useState<StoredEvolutionTreeState>(readEvolutionTreeState)
+  const direction = treeState.direction
   const { data, isLoading, isError } = useQuery({
     queryKey: ['digimon-evolution-routes', i18n.language, digimon?.id],
     queryFn: () => getEvolutionRoutes(digimon!.id),
@@ -212,7 +239,15 @@ export function EvolutionRouteSection({ digimon }: { digimon: DigimonSummary | n
   )
   const current = data?.current ?? digimon
   const expansionKey = `${digimon?.id ?? 'none'}:${direction}`
-  const expandedIds = expansionState.key === expansionKey ? expansionState.ids : new Set<string>()
+  const expandedIds = new Set(treeState.expandedByKey[expansionKey] ?? [])
+
+  useEffect(() => {
+    try {
+      window.sessionStorage.setItem(evolutionTreeStateKey, JSON.stringify(treeState))
+    } catch {
+      // Keep the tree usable even when browser storage is unavailable.
+    }
+  }, [treeState])
 
   return (
     <Grid container component="section" className="panel route-section" id="dex">
@@ -231,14 +266,14 @@ export function EvolutionRouteSection({ digimon }: { digimon: DigimonSummary | n
       <Box className="evolution-tabs" role="tablist" aria-label={t('evolution.directionLabel')}>
         <Button
           className={direction === 'prior' ? 'active' : ''}
-          onClick={() => setDirection('prior')}
+          onClick={() => setTreeState((state) => ({ ...state, direction: 'prior' }))}
           role="tab"
         >
           ← {t('evolution.previous')}
         </Button>
         <Button
           className={direction === 'next' ? 'active' : ''}
-          onClick={() => setDirection('next')}
+          onClick={() => setTreeState((state) => ({ ...state, direction: 'next' }))}
           role="tab"
         >
           {t('evolution.next')} →
@@ -303,10 +338,16 @@ export function EvolutionRouteSection({ digimon }: { digimon: DigimonSummary | n
                 selectedNodeId={null}
                 onSelect={(next) => navigate(`/digimons/${next.digimonId}`)}
                 onToggle={(id) =>
-                  setExpansionState((state) => {
-                    const ids = new Set(state.key === expansionKey ? state.ids : [])
+                  setTreeState((state) => {
+                    const ids = new Set(state.expandedByKey[expansionKey] ?? [])
                     ids.has(id) ? ids.delete(id) : ids.add(id)
-                    return { key: expansionKey, ids }
+                    return {
+                      ...state,
+                      expandedByKey: {
+                        ...state.expandedByKey,
+                        [expansionKey]: [...ids],
+                      },
+                    }
                   })
                 }
               />
